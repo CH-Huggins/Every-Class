@@ -54,10 +54,10 @@ const {notFoundHandler, productionErrorHandler, catchAsyncErrors} = require("./u
 // ========================================================================== //
 
 // Validators
-const {nameValidator} = require("./Validators/nameValidator");
+//const {nameValidator} = require("./Validators/nameValidator");
 
 // Controllers
-const nameController = require("./Controllers/nameController");
+//const nameController = require("./Controllers/nameController");
 
 // Global Middleware
 app.set('view engine', 'ejs');
@@ -65,7 +65,7 @@ app.use(express.static(__dirname + '/public'));
 app.use(express.json({limit: '200kb'}));
 
 // Endpoints (Seperate into alotted sections) DONT FORGET VALIDATORS
-app.get("/location/:possibleParam", nameValidator, nameController.renderName);
+//app.get("/location/:possibleParam", nameValidator, nameController.renderName);
 
 // ========================================================================== //
 // ============================ Error Handlers ============================== //
