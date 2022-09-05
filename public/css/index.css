@@ -1,0 +1,98 @@
+/* ========================================================================== */
+/* ---------------------------- Containers ---------------------------------- */
+/* ========================================================================== */
+
+.left_block {
+    width: 800px;
+    height: 850px;
+    float: left;
+    border: solid;
+    border-width: 5px;
+    border-bottom: none;
+    border-color: #000000;
+    transform: translate(-5%, -5%);
+}
+
+.container {
+    width: fit-content;
+    position: fixed;
+    top: 35%;
+    left: 78%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+}
+
+.text {
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: solid;
+    border-color: #92abb0;
+    border-radius: 10px;
+    width: fit-content;
+    margin-bottom: 50px;
+}
+
+/* ========================================================================== */
+/* -------------------------------- Text ------------------------------------ */
+/* ========================================================================== */
+
+.title {
+    color: black;
+    font-size: 100px;
+    margin: auto;
+    margin-bottom: 0%;
+    width: 700px;
+    text-align: center;
+    font-family: newFont;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.description {
+    color: black;
+    font-size: 24px;
+    margin: auto;
+    padding: 50px;
+    width: 700px;
+    text-align: center;
+    font-family: newFont;
+}
+
+/* ========================================================================== */
+/* ------------------------------ Nav Bar ----------------------------------- */
+/* ========================================================================== */
+
+.nav a {
+    background-color: white;
+    /*background-color: rgb(70, 156, 73);*/
+    float: right;
+    color: black;
+    text-align: center;
+    padding: 20px;
+    text-decoration: none;
+    font-size: 40px;
+    width: 300px;
+    border: solid;
+    border-radius: 20px;
+    border-color: #000000;
+    font-family: newFont;
+    box-shadow: 0px 5px rgba(0, 44, 88, 0.5);
+    margin: auto;
+    transform: translate(-40%, 450%);
+}
+  
+  /* Change the color of links on hover */
+.nav a:hover {
+    background-color: rgba(204, 204, 204, 0.8);
+    color: black;
+    width: 500px;
+}
+
+/* ========================================================================== */
+/* ------------------------------- Fonts ------------------------------------ */
+/* ========================================================================== */
+
+@font-face {
+    /* https://www.dafont.com/fort-quinsy.font */
+    font-family: newFont;
+    src: url("../media/fonts/Cocogoose.ttf") format("opentype");
+}

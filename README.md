@@ -1,6 +1,9 @@
 # Government-Secrets
 
-
+Monday, September 5th 2022:
+Finished the CSS and HTML on the home page featuring the sign up and log in
+buttons. Functionality for the buttons has not been completed but the buttons
+at least exist now.
 
 # base-code (Read for install instructions)
 The foundation needed for a website to avoid repetition.
