@@ -5,6 +5,7 @@
 .left_block {
     width: 800px;
     height: 850px;
+    object-fit: cover;
     float: left;
     border: solid;
     border-width: 5px;
