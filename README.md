@@ -5,6 +5,11 @@ Finished the CSS and HTML on the home page featuring the sign up and log in
 buttons. Functionality for the buttons has not been completed but the buttons
 at least exist now.
 
+Tuesday, September 13th 2022:
+Gradually finished the log in and sign up html pages as well as css on both of
+them. Added back buttons to both pages that bring the computer to "history(-1)"
+in case refreshes were done to avoid the back just keeping them on the same page.
+
 # base-code (Read for install instructions)
 The foundation needed for a website to avoid repetition.
 
