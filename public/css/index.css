@@ -86,6 +86,7 @@
     background-color: rgba(204, 204, 204, 0.8);
     color: black;
     width: 500px;
+    transition: .25s ease-in-out;
 }
 
 /* ========================================================================== */

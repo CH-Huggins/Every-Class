@@ -30,8 +30,8 @@ body {
 /* --------------------------- Non-Container -------------------------------- */
 /* ========================================================================== */
 
-h1 {
-    width:  250px;
+h2 {
+    width:  200px;
     margin: auto;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -46,7 +46,6 @@ label {
     font-size: 40px;
     width: auto;
     padding: 20px;
-    margin-left: 18%;
 }
 
 input {
@@ -68,25 +67,22 @@ button {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    width: 250px;
+    font-size: 30px;
     margin: 10px;
     margin-left: 20px;
+    margin-top: 13%;
     transition: .25s ease-in-out;
 }
 
-p {
-    margin-left: 17%;
-}
-
 .backbtn {
-    margin-left: 30%;
+    margin-left: 12%;
 }
 
 button:hover {
     transition: .25s ease-in-out;
     cursor: pointer;
-    padding-top: 5%;
-    padding-bottom: 5%;
+    padding: 5%;
 }
 
 /* ========================================================================== */
