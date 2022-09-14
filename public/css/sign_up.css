@@ -67,7 +67,6 @@ button {
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
     font-size: 16px;
     margin: 10px;
     margin-left: 20px;
@@ -82,11 +81,17 @@ p {
     margin-left: 30%;
 }
 
-button:hover {
+.backbtn:hover {
     transition: .25s ease-in-out;
     cursor: pointer;
-    padding-top: 5%;
-    padding-bottom: 5%;
+    margin-left: calc(30% - 20px);
+    padding-left: 52px;
+}
+
+#submit:hover {
+    transition: .25s ease-in-out;
+    cursor: pointer;
+    padding-right: 52px;
 }
 
 /* ========================================================================== */
