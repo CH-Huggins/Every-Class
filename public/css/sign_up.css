@@ -67,26 +67,51 @@ button {
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
     font-size: 16px;
     margin: 10px;
     margin-left: 20px;
     transition: .25s ease-in-out;
 }
 
-p {
+.terms {
     margin-left: 17%;
+}
+
+.error {
+    text-align: center;
+    display: inline-block;
+    font-family: newFont;
+    font-size: 14px;
+    width: 500px;
+    margin-left: 13%;
 }
 
 .backbtn {
     margin-left: 30%;
 }
 
-button:hover {
+.backbtn:hover {
     transition: .25s ease-in-out;
     cursor: pointer;
-    padding-top: 5%;
-    padding-bottom: 5%;
+    margin-left: calc(30% - 20px);
+    padding-left: 52px;
+}
+
+.submitbtn:hover {
+    transition: .25s ease-in-out;
+    cursor: pointer;
+    padding-right: 52px;
+}
+
+/* Class exists only in the ejs file for label changes */
+.ejs {
+    text-align: center;
+    display: inline-block;
+    font-family: newFont;
+    font-size: 40px;
+    width: 500px;
+    margin-left: 13%;
+    padding: 0px;
 }
 
 /* ========================================================================== */

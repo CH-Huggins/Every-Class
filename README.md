@@ -10,6 +10,10 @@ Gradually finished the log in and sign up html pages as well as css on both of
 them. Added back buttons to both pages that bring the computer to "history(-1)"
 in case refreshes were done to avoid the back just keeping them on the same page.
 
+Thursday, September 29th 2022:
+Set up registration and login controllers and methods. Still not fully developed
+but well on their way.
+
 # base-code (Read for install instructions)
 The foundation needed for a website to avoid repetition.
 
