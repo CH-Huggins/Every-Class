@@ -73,8 +73,17 @@ button {
     transition: .25s ease-in-out;
 }
 
-p {
+.terms {
     margin-left: 17%;
+}
+
+.error {
+    text-align: center;
+    display: inline-block;
+    font-family: newFont;
+    font-size: 14px;
+    width: 500px;
+    margin-left: 13%;
 }
 
 .backbtn {
@@ -88,10 +97,21 @@ p {
     padding-left: 52px;
 }
 
-#submit:hover {
+.submitbtn:hover {
     transition: .25s ease-in-out;
     cursor: pointer;
     padding-right: 52px;
+}
+
+/* Class exists only in the ejs file for label changes */
+.ejs {
+    text-align: center;
+    display: inline-block;
+    font-family: newFont;
+    font-size: 40px;
+    width: 500px;
+    margin-left: 13%;
+    padding: 0px;
 }
 
 /* ========================================================================== */

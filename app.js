@@ -60,6 +60,7 @@ const {notFoundHandler, productionErrorHandler, catchAsyncErrors} = require("./u
 //const nameController = require("./Controllers/nameController");
 const loginController = require("./Controllers/loginController");
 const registerController = require("./Controllers/registerController");
+//const databaseController = require("./Controllers/databaseController");
 
 // Global Middleware
 app.set('view engine', 'ejs');

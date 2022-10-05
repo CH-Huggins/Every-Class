@@ -3,7 +3,7 @@
 // Function for validating email and verifying it
 
 function validateEmail(email) {
-
+    
 }
 
 // Function for validating password and verifying it
