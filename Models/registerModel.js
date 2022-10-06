@@ -38,7 +38,7 @@ function checkPassword(pass, passVerif) {
 
 function storeCredentials(email, pass){
     // Store the credentials in the database
-    const sql = 'INSERT INTO students VALUES (@email, @pass, null, null);';
+    const sql = 'INSERT INTO users VALUES (@email, @pass, null, null);';
     const stmt = db.prepare(sql);
     // Will need to hash the password here, but that's a later thing
     stmt.run({"email": email,
