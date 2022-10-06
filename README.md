@@ -20,8 +20,8 @@ Log in validation is working.
 Things to fix: The input display on the index
         4:15 PM:
         Users table was modified, now we are implementing uuid as our user's ID
-        Index was fixed.
-
+        Index was fixed
+        
 # base-code (Read for install instructions)
 The foundation needed for a website to avoid repetition.
 
