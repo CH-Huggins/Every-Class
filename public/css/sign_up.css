@@ -13,8 +13,8 @@ body {
     position: fixed;
     top: 50%;
     left: 50%;
-    margin: 10px;
-    padding: 10px;
+    margin: 1.25%;
+    padding: 1.25%;
     /* bring your own prefixes */
     transform: translate(-50%, -50%);
     border-width: thick;
@@ -31,10 +31,11 @@ body {
 /* ========================================================================== */
 
 h1 {
-    width:  250px;
+    width:  40%;
+    text-align: center;
     margin: auto;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 2.5%;
+    padding-bottom: 2.5%;
     font-family: newFont;
     font-size: 70px;
 }
@@ -45,7 +46,7 @@ label {
     font-family: newFont;
     font-size: 40px;
     width: auto;
-    padding: 20px;
+    padding: 2.5%;
     margin-left: 18%;
 }
 
@@ -54,8 +55,8 @@ input {
     display: inline-block;
     font-family: newFont;
     font-size: 30px;
-    width: 500px;
-    margin-left: 13%;
+    width: 75%;
+    margin-left: 12.5%;
 }
 
 button {
@@ -64,29 +65,53 @@ button {
     border: 2px solid;
     border-color: #000000;
     color: rgb(0, 0, 0);
-    padding: 15px 32px;
+    padding: 1.75% 4.3%;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
     font-size: 16px;
-    margin: 10px;
-    margin-left: 20px;
+    margin: 1.75%;
+    margin-left: 2.5%;
     transition: .25s ease-in-out;
 }
+.terms {
+    text-align: center;
+}
 
-p {
-    margin-left: 17%;
+.error {
+    text-align: center;
+    display: inline-block;
+    font-family: newFont;
+    font-size: 14px;
+    width: 75%;
+    margin-left: 13%;
 }
 
 .backbtn {
     margin-left: 30%;
 }
 
-button:hover {
+.backbtn:hover {
     transition: .25s ease-in-out;
     cursor: pointer;
-    padding-top: 5%;
-    padding-bottom: 5%;
+    margin-left: calc(27.5%);
+    padding-left: 6.78%;
+}
+
+.submitbtn:hover {
+    transition: .25s ease-in-out;
+    cursor: pointer;
+    padding-right: 6.78%;
+}
+
+/* Class exists only in the ejs file for label changes */
+.ejs {
+    text-align: center;
+    display: inline-block;
+    font-family: newFont;
+    font-size: 40px;
+    width: 500px;
+    margin-left: 13%;
+    padding: 0px;
 }
 
 /* ========================================================================== */
