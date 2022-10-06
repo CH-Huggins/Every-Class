@@ -1,5 +1,0 @@
-PORT=4514
-DB=
-COOKIE_SECRET=
-API_KEY= 
-NODE_ENV="development"

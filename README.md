@@ -14,6 +14,11 @@ Thursday, September 29th 2022:
 Set up registration and login controllers and methods. Still not fully developed
 but well on their way.
 
+Thursday, October 6th 2022:
+Added users table in database.
+Log in validation is working.
+Things to fix: The input display on the index.
+
 # base-code (Read for install instructions)
 The foundation needed for a website to avoid repetition.
 

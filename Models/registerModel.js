@@ -28,8 +28,10 @@ function checkEmail(email) {
 
 function checkPassword(pass, passVerif) {
     if (pass == passVerif){
+        console.log("Passwords match");
         return true;
     } else {
+        console.log("passwords do not match");
         return false;
     }
 }
@@ -41,6 +43,7 @@ function storeCredentials(email, pass){
     // Will need to hash the password here, but that's a later thing
     stmt.run({"email": email,
         "pass": pass});
+        
 
     console.log("ROW INSERTED WITH EMAIL: " + email + " AND PASSWORD: " + pass); // DUMMY 
 }

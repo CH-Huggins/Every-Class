@@ -2,11 +2,15 @@
 /* ---------------------------- Containers ---------------------------------- */
 /* ========================================================================== */
 
+body {
+    overflow: hidden;
+}
+
 .left_block {
-    width: 800px;
-    height: 850px;
+    width: 60%;
+    height: 900px;
     object-fit: cover;
-    float: left;
+    display: inline-block;
     border: solid;
     border-width: 5px;
     border-bottom: none;
@@ -17,7 +21,7 @@
 .container {
     width: fit-content;
     position: fixed;
-    top: 35%;
+    top: 25%;
     left: 78%;
     /* bring your own prefixes */
     transform: translate(-50%, -50%);
@@ -30,7 +34,7 @@
     border-color: #92abb0;
     border-radius: 10px;
     width: fit-content;
-    margin-bottom: 50px;
+    margin-bottom: 12.5%;
 }
 
 /* ========================================================================== */
@@ -38,24 +42,87 @@
 /* ========================================================================== */
 
 .title {
+    display: block;
     color: black;
     font-size: 100px;
     margin: auto;
     margin-bottom: 0%;
-    width: 700px;
+    width: auto;
     text-align: center;
     font-family: newFont;
     text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
 }
 
 .description {
+    display: block;
     color: black;
     font-size: 24px;
     margin: auto;
-    padding: 50px;
-    width: 700px;
+    padding: 12.5%;
+    width: 40%;
     text-align: center;
     font-family: newFont;
+}
+
+.container2 {
+    width: fit-content;
+    position: fixed;
+    top: 50%;
+    left: 88.75%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+}
+
+#or {
+    width: fit-content;
+    position: fixed;
+    top: 65%;
+    left: 78.5%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+    font-family: newFont;
+    font-size: 24px;
+}
+
+input {
+    display: inline-block;
+    left:0%;
+    text-align: center;
+    width: calc(150% - 30px);;
+    margin-bottom: 5%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+
+label {
+    display: inline-block;
+    text-align: center;
+    width: 50%;
+    font-family: newfont;
+}
+
+.submit {
+    display: block;
+    text-align: center;
+    font-family: newFont;
+
+    border-color: #000000;
+    background-color: white;
+    color: black;
+
+    padding: 2.5%;
+    font-size: 20px;
+    width: 60%;
+    border: solid;
+    border-radius: 10px;
+    margin-left: 12.5%;
+    
+    box-shadow: 0px 5px rgba(0, 44, 88, 0.5);
+}
+
+.submit:hover {
+    background-color: rgba(204, 204, 204, 0.8);
+    cursor: pointer;
 }
 
 /* ========================================================================== */
@@ -63,30 +130,34 @@
 /* ========================================================================== */
 
 .nav a {
-    background-color: white;
-    /*background-color: rgb(70, 156, 73);*/
-    float: right;
-    color: black;
     text-align: center;
-    padding: 20px;
+    display: block;
+    font-family: newFont;
+    position: fixed;
+
+    border-color: #000000;
+    background-color: white;
+    color: black;
+
+    padding: 2.5%;
+
     text-decoration: none;
     font-size: 40px;
-    width: 300px;
+    width: 20%;
     border: solid;
     border-radius: 20px;
-    border-color: #000000;
-    font-family: newFont;
+    
     box-shadow: 0px 5px rgba(0, 44, 88, 0.5);
-    margin: auto;
-    transform: translate(-40%, 450%);
+    
+    top: 80%;
+    left: 78.5%;
+    transform: translate(-50%, -50%);
 }
   
   /* Change the color of links on hover */
 .nav a:hover {
     background-color: rgba(204, 204, 204, 0.8);
-    color: black;
-    width: 500px;
-    transition: .25s ease-in-out;
+    cursor: pointer;
 }
 
 /* ========================================================================== */
