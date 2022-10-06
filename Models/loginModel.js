@@ -17,6 +17,7 @@ function validatePassword(pass) {
 function login(email, pass) {
     const stmt = db.prepare('SELECT * FROM users WHERE email = @email;');
     const inf = stmt.all({email});
+    console.log(inf);
     if(inf[0] != null){ // If query returns values
         const passwordCheck = inf[0].password;
         if(passwordCheck === pass)
