@@ -1,10 +1,6 @@
 "use script";
 
 const loginModel = require("../Models/loginModel");
-//var config = require('../Controllers/databaseController');
-//var connection= config.connection;
-//const db = require("./db");
-
 /* ----------------------------------------------------
         REQUIRE DATA FROM log_in.html
    ---------------------------------------------------- */
