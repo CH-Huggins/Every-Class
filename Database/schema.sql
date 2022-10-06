@@ -1,9 +1,9 @@
 CREATE TABLE IF NOT EXISTS users(
 email varchar(40) not null,
-userID VARCHAR (10),
+userid VARCHAR (36),
 password varchar(20) not null,
 name varchar(35),
-validated boolean default (false),
+validated boolean,
 primary key (email)
 );
 
@@ -58,6 +58,9 @@ PRIMARY KEY (SemesterId,email,name)
 );
 
 
-INSERT INTO users VALUES ('andrea.tomas@smail.astate.edu', '16267017' ,'password', 'Andrea Tomas', TRUE);
-INSERT INTO users VALUES ('christia.huggins@smail.astate.edu','16895647' ,'password', 'Christian Huggins', TRUE);
-INSERT INTO users VALUES ('pauline.gonzalez@smail.astate.edu', '45627863','password', 'Pauline Gonzalez', TRUE);
+INSERT INTO users VALUES ('andrea.tomas@smail.astate.edu', '29df2339-219f-42dd-8852-3697149c3e24' ,
+                            'password', 'Andrea Tomas', TRUE);
+INSERT INTO users VALUES ('christia.huggins@smail.astate.edu','725b59d1-6158-465e-b1d8-20db5b1d6399',
+                            'password', 'Christian Huggins', TRUE);
+INSERT INTO users VALUES ('pauline.gonzalez@smail.astate.edu', 'd4d6649d-0e26-4be1-9568-5af2e8b6dd8a',
+                            'password', 'Pauline Gonzalez', TRUE);

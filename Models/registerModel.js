@@ -1,5 +1,4 @@
 "use strict";
-
 const db = require("./db");
 
 function checkEmail(email) {
@@ -36,16 +35,22 @@ function checkPassword(pass, passVerif) {
     }
 }
 
+
 function storeCredentials(email, pass){
     // Store the credentials in the database
-    const sql = 'INSERT INTO students VALUES (@email, @pass, null, null);';
-    const stmt = db.prepare(sql);
+    // Create uuid
+        const { v4: uuidv4 } = require('uuid');
+        var userid = uuidv4();
+        const sql = 'INSERT INTO users VALUES (@email, @pass, @userid, null, null);';
+        const stmt = db.prepare(sql);
     // Will need to hash the password here, but that's a later thing
-    stmt.run({"email": email,
-        "pass": pass});
-        
-
-    console.log("ROW INSERTED WITH EMAIL: " + email + " AND PASSWORD: " + pass); // DUMMY 
+        stmt.run({"email": email,
+            "pass": pass,
+            "userid": userid});
+    
+        // DUMMY FUNCTION -andrea
+        console.log("ROW INSERTED WITH EMAIL: " + email + " AND PASSWORD: " + pass
+                    + " AND UUID: " + userid); 
 }
 
 module.exports = {
