@@ -1,8 +1,8 @@
 "use strict";
 
 function openNav() {
-    document.getElementById("nav").style.width = "250px";
-    document.getElementById("main").style.marginLeft = "250px";
+    document.getElementById("nav").style.width = "15%";
+    document.getElementById("main").style.marginLeft = "15%";
     document.body.style.transition = ".5s ease-in-out;"
   }
   
