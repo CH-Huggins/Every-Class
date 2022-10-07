@@ -9,8 +9,8 @@ function loginControl(req, res) {
     var password = req.query.pswd;
 
     const post = {"name": "User's Name",
-    "timePosted": "10-6-22 11:59",
-    "message": "This is a message posted."};
+        "timePosted": "10-6-22 11:59",
+        "message": "This is a message posted."};
     const posts = [];
 
     for (let i=0; i<20; i++) {
