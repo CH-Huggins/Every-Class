@@ -13,17 +13,31 @@
         <!-- TODO: Create app.gets for each of these views -->
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="/home">Home</a>
-        <li><a href="/course">Courses</a>
+        <a href="/course">Courses</a>
         <a href="/library">Library</a>
         <a href="/messages">Messages</a>
         <a href="/profile">Profile</a>
         <!-- Log Out needs to call method to end user sessions -->
         <a id="logout" href="/logout">Log Out</a>
     </div>
-    <span style="font-size:50px;cursor:pointer" onclick="openNav()">&#9776;</span>
+    <span style="font-size:50px;cursor:pointer; display:inline;" onclick="openNav()">&#9776;</span>
 
     <div id="main">
-        <p>Welcome <%= email %></p>
+        <h1>Home Space:</h1>
+        <p>
+        <% for ( let i = 0; i < posts.length; i++ ){ %>
+            <div class="post">
+                <p class="name">
+                    <%= posts[i].name %>
+                </p>
+                <p class="time">
+                    <%= posts[i].timePosted %>
+                </p>
+                <p class="message">
+                    <%= posts[i].message %>
+                </p>
+            </div>
+        <% } %>
     </div>
 </body>
 </html>

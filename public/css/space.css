@@ -2,6 +2,10 @@
 /* ---------------------------- Containers ---------------------------------- */
 /* ========================================================================== */
 
+body {
+    background-image: linear-gradient(180deg,  #c31d1d, #000000);
+}
+
 #nav {
     height: 100%;
     width: 0;
@@ -22,6 +26,7 @@
     color: #818181;
     display: block;
     transition: 0.3s;
+    font-family: newfont;
 }
 
 #nav a:hover {
@@ -34,30 +39,45 @@
     right: 25px;
     font-size: 36px;
     margin-left: 50px;
+    transition: .25s ease-in-out;
 }
 
-ul {
-    display: block;
-    list-style-type: none;
+#main {
     font-family: newFont;
-    font-size: 14px;
-    width: 50%;
-    margin: 0% auto;
-    padding: 0%;
+}
+
+.post {
+    border: solid;
+    width: 100%;
+    height: 10%;
+    border-color: black;
+    background-color: white;
+}
+
+h1 {
+    display: inline-block;
+    font-size: 30px;
+    font-family: newFont;
+    text-align: center;
+    width: fit-content;
+    margin-left: 45%;
 }
 
 /* ========================================================================== */
 /* --------------------------- Non-Container -------------------------------- */
 /* ========================================================================== */
 
-li {
-    display: inline;
-    padding: 2.5%;
-    float: left;
+#logout {
+    margin-top: 80%;
 }
 
-#logout {
-    float: right;
+.name {
+    display: inline;
+}
+
+.time {
+    display: inline;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 /* ========================================================================== */
