@@ -58,7 +58,7 @@ const {notFoundHandler, productionErrorHandler, catchAsyncErrors} = require("./u
 
 // Controllers
 //const nameController = require("./Controllers/nameController");
-const loginController = require("./Controllers/loginController");
+const loginController = require("./Controllers/loginControllers");
 const registerController = require("./Controllers/registerController");
 const libraryController = require("./Controllers/libraryController");
 //const databaseController = require("./Controllers/databaseController");
