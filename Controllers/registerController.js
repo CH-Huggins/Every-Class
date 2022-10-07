@@ -12,6 +12,7 @@ function register(req, res) {
         registerModel.checkPassword(pass, passVerif) === true){
         // Store the information
         registerModel.storeCredentials(email, pass);
+        registerModel.validationEmail(email);
         // Render the setup page
         res.render("setup", {"email": email});
     } else {

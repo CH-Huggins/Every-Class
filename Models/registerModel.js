@@ -1,6 +1,17 @@
 "use strict";
 
 const db = require("./db");
+const nodemailer = require("nodemailer");
+require("dotenv").config();
+
+	
+const transporter = nodemailer.createTransport({
+    service: "Gmail",
+    auth: {
+        user: process.env.EMAIL_ADDRESS,
+        pass: process.env.EMAIL_PASSWORD
+    }
+});
 
 function checkEmail(email) {
     //
@@ -48,8 +59,30 @@ function storeCredentials(email, pass){
     console.log("ROW INSERTED WITH EMAIL: " + email + " AND PASSWORD: " + pass); // DUMMY 
 }
 
+async function validationEmail(email) {  
+    const message = "You're getting this email because you registered for" + 
+        " EveryClass.org. If you didn't register for this site, ignore this email";
+
+    const mail = {
+        from: process.env.EMAIL_ADDRESS,
+        to: email,
+        subject: "Validate Account",
+        text: message,
+        html: ""
+    }
+
+    try {
+        await transporter.sendMail(mail);
+        return true;
+      } catch (err) {
+        console.error(err);
+        return false;
+      }
+}
+
 module.exports = {
     checkEmail,
     checkPassword,
-    storeCredentials
+    storeCredentials,
+    validationEmail
 }
