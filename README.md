@@ -22,6 +22,8 @@ Things to fix: The input display on the index
         Users table was modified, now we are implementing uuid as our user's ID
         Index was fixed.
 
+Friday, October 14th, 2022:
+Schema.sql modified -> Majors were inserted
 # base-code (Read for install instructions)
 The foundation needed for a website to avoid repetition.
 
