@@ -60,6 +60,7 @@ const {notFoundHandler, productionErrorHandler, catchAsyncErrors} = require("./u
 //const nameController = require("./Controllers/nameController");
 const loginController = require("./Controllers/loginController");
 const registerController = require("./Controllers/registerController");
+const libraryController = require("./Controllers/libraryController");
 //const databaseController = require("./Controllers/databaseController");
 
 // Global Middleware
@@ -70,8 +71,10 @@ app.use(express.json({limit: '200kb'}));
 // Endpoints (Seperate into alotted sections) DONT FORGET VALIDATORS
 //app.get("/location/:possibleParam", nameValidator, nameController.renderName);
 
-app.get("/home", loginController.loginControl)
-app.get("/setup", registerController.register)
+app.get("/home", loginController.loginControl);
+app.get("/setup", registerController.register);
+
+app.get("/library", libraryController.renderLibrary);
 
 // ========================================================================== //
 // ============================ Error Handlers ============================== //

@@ -1,0 +1,91 @@
+/* ========================================================================== */
+/* ---------------------------- Containers ---------------------------------- */
+/* ========================================================================== */
+
+body {
+    background-image: linear-gradient(180deg,  #c31d1d, #000000);
+}
+
+#nav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+#nav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+    font-family: newfont;
+}
+
+#nav a:hover {
+    color: #f1f1f1;
+}
+
+#nav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    transition: .25s ease-in-out;
+}
+
+#main {
+    font-family: newFont;
+}
+
+.post {
+    border: solid;
+    width: 100%;
+    height: 10%;
+    border-color: black;
+    background-color: white;
+}
+
+h1 {
+    display: inline-block;
+    font-size: 30px;
+    font-family: newFont;
+    text-align: center;
+    width: fit-content;
+    margin-left: 45%;
+}
+
+/* ========================================================================== */
+/* --------------------------- Non-Container -------------------------------- */
+/* ========================================================================== */
+
+#logout {
+    margin-top: 80%;
+}
+
+.name {
+    display: inline;
+}
+
+.time {
+    display: inline;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ========================================================================== */
+/* ------------------------------- Fonts ------------------------------------ */
+/* ========================================================================== */
+
+@font-face {
+    /* https://www.dafont.com/fort-quinsy.font */
+    font-family: newFont;
+    src: url("../media/fonts/Cocogoose.ttf") format("opentype");
+}
