@@ -6,6 +6,7 @@
 
 function makeValidator (schema, prop) {
     return function (req, res, next) {
+        console.log(req.params);
         const {value, error} = schema.validate(req[prop], {
             abortEarly: false,
             stripUnknown: true, 

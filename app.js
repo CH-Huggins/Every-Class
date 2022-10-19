@@ -10,6 +10,11 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 
+var bodyParser = require('body-parser');
+
+app.use(bodyParser.json()); // for parsing application/json
+app.use(bodyParser.urlencoded({ extended: true }))
+
 // Production Security
 const helmet = require("helmet");
 
@@ -48,6 +53,8 @@ const sessionConfig = {
 	}
 };
 app.use(session(sessionConfig));
+
+
 
 // Error Handlers
 const {notFoundHandler, productionErrorHandler, catchAsyncErrors} = require("./utils/errorHandlers");
