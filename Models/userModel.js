@@ -7,7 +7,7 @@ const crypto = require("crypto");
 async function addUser(email, password) {
     const uuid = crypto.randomUUID();
     console.log(email,password);
-    try {
+
     const hash = await argon2.hash(password);
     const sql = `INSERT INTO users
                     (email, userID, hash)
@@ -15,10 +15,11 @@ async function addUser(email, password) {
                     (@email, @userID, @hash)
                 `;
     const stmt = db.prepare(sql);
+        try {
         stmt.run({
             "userID": uuid,
             "email": email,
-            "hash": hash,
+            "hash": hash
         });
         return true;
     }

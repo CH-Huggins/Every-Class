@@ -4,9 +4,9 @@
 // Github: https://github.com/ChrisDSaldivar
 
 
-function makeBodyValidator (schema) {
+function makeValidator (schema, prop) {
     return function (req, res, next) {
-        const {value, error} = schema.validate(req.body, {
+        const {value, error} = schema.validate(req[prop], {
             abortEarly: false,
             stripUnknown: true, 
             errors: {
@@ -16,15 +16,15 @@ function makeBodyValidator (schema) {
         
         if (error) {
             const errorMessages = error.details.map(detail => detail.message);
-            console.log(errorMessages);
-            return res.status(400).json({"errors": errorMessages});
+            return res.status(400).json({errorMessages});
         } 
 
-        req.body = value;
+        req[prop] = value;
+        
         next();
     }
 }
 
 module.exports = {
-    makeBodyValidator,
+    makeValidator,
 };

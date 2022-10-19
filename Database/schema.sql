@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS users(
+userID   TEXT,
 email    VARCHAR(40) not null,
-userID   TEXT PRIMARY KEY,
 hash     TEXT UNIQUE NOT NULL,
 name     VARCHAR(35),
 validated boolean default (false),

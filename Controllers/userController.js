@@ -4,10 +4,11 @@ const userModel = require("../Models/userModel");
 const argon2 = require("argon2");
 
 async function createNewUser (req, res) {
-    const {email, password} = req.body;
+    console.log(req.body);
+    const {email, pswd} = req.body;
 
-    console.log(email, password);
-    const createUser = await userModel.addUser(email, password);
+    console.log(email, pswd, "this is in controller");
+    const createUser = await userModel.addUser(email, pswd);
 
     if (!createUser) {
         return res.sendStatus(409);
@@ -17,16 +18,15 @@ async function createNewUser (req, res) {
 }
 
 async function logIn (req, res) {
-    const {email, password} = req.body;
+    const {email, pswd} = req.body;
     const user = userModel.getUserbyEmail(email);
 
     if (!email) {
         return res.sendStatus(400);
-        console.log("email not found");
     }
 
     // ** UPDATE THIS TO RETURN A BETTER RESPONSE STATUS WHEN FAILED
-    const correct = await argon2.verify(user.hash, password);
+    const correct = await argon2.verify(user.hash, pswd);
     if (!correct) {
         return res.sendStatus(400);
     };
