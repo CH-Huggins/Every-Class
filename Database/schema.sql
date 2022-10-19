@@ -1,10 +1,10 @@
 CREATE TABLE IF NOT EXISTS users(
-email varchar(40) not null,
-userID VARCHAR (10),
-password varchar(20) not null,
-name varchar(35),
+email    VARCHAR(40) not null,
+userID   TEXT PRIMARY KEY,
+hash     TEXT UNIQUE NOT NULL,
+name     VARCHAR(35),
 validated boolean default (false),
-primary key (email)
+primary key (userID)
 );
 
 CREATE TABLE IF NOT EXISTS  students(
@@ -57,7 +57,3 @@ FOREIGN KEY (semesterID) REFERENCES Semesters(semesterID) on delete cascade on u
 PRIMARY KEY (SemesterId,email,name)
 );
 
-
-INSERT INTO users VALUES ('andrea.tomas@smail.astate.edu', '16267017' ,'password', 'Andrea Tomas', TRUE);
-INSERT INTO users VALUES ('christia.huggins@smail.astate.edu','16895647' ,'password', 'Christian Huggins', TRUE);
-INSERT INTO users VALUES ('pauline.gonzalez@smail.astate.edu', '45627863','password', 'Pauline Gonzalez', TRUE);

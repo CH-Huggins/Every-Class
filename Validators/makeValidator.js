@@ -3,9 +3,10 @@
 // Validator Code from Christopher Saldivar
 // Github: https://github.com/ChrisDSaldivar
 
-function makeValidator (schema, prop) {
+
+function makeBodyValidator (schema) {
     return function (req, res, next) {
-        const {value, error} = schema.validate(req[prop], {
+        const {value, error} = schema.validate(req.body, {
             abortEarly: false,
             stripUnknown: true, 
             errors: {
@@ -15,15 +16,15 @@ function makeValidator (schema, prop) {
         
         if (error) {
             const errorMessages = error.details.map(detail => detail.message);
-            return res.status(400).json({errorMessages});
+            console.log(errorMessages);
+            return res.status(400).json({"errors": errorMessages});
         } 
 
-        req[prop] = value;
-        
+        req.body = value;
         next();
     }
 }
 
 module.exports = {
-    makeValidator
+    makeBodyValidator,
 };
