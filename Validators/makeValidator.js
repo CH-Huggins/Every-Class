@@ -3,8 +3,10 @@
 // Validator Code from Christopher Saldivar
 // Github: https://github.com/ChrisDSaldivar
 
+
 function makeValidator (schema, prop) {
     return function (req, res, next) {
+        console.log(req.params);
         const {value, error} = schema.validate(req[prop], {
             abortEarly: false,
             stripUnknown: true, 
@@ -25,5 +27,5 @@ function makeValidator (schema, prop) {
 }
 
 module.exports = {
-    makeValidator
+    makeValidator,
 };
