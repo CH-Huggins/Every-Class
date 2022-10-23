@@ -1,10 +1,10 @@
 CREATE TABLE IF NOT EXISTS users(
 userID   TEXT,
-email    VARCHAR(40) not null,
+email    VARCHAR(40) UNIQUE NOT NULL,
 hash     TEXT UNIQUE NOT NULL,
 name     VARCHAR(35),
 validated boolean default (false),
-primary key (userID)
+primary key (email)
 );
 
 CREATE TABLE IF NOT EXISTS  students(
