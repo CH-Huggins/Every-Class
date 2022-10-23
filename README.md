@@ -76,6 +76,8 @@ npm install schema
 npm install superagent
 = no clue =
 
+npm install redis@v3
+
 Controllers:
 Anything that renders or utilizes the models
 
