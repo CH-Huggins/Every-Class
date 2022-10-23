@@ -10,6 +10,7 @@
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
+    font-family: newFont;
 }
 
 /* Words In Navbar */
@@ -20,6 +21,7 @@
     color: #818181;
     display: block;
     transition: 0.3s;
+    font-family: newFont;
 }
   
 /* Change Words Style On Hover */
@@ -34,4 +36,15 @@
     right: 25px;
     font-size: 36px;
     margin-left: 50px;
+    font-family: newFont;
+}
+
+.logout {
+    padding-top: 50%;
+}
+
+@font-face {
+    /* https://www.dafont.com/fort-quinsy.font */
+    font-family: newFont;
+    src: url("../media/fonts/Cocogoose.ttf") format("opentype");
 }

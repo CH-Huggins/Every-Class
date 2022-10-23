@@ -70,6 +70,7 @@ const postValidator = require("./Validators/postValidator");
 // Controllers
 const userController = require("./Controllers/userController");
 const postController = require("./Controllers/postController");
+const profileController = require("./Controllers/profileController");
 
 // Global Middleware
 app.set('view engine', 'ejs');
@@ -83,6 +84,7 @@ app.post("/api/user", userValidator.registerValidator, userController.createNewU
 app.post("/api/login", userValidator.loginValidator, userController.logIn);
 app.post("/api/posts", postValidator.postValidator, postController.createPost);
 app.post("/api/logOut", userController.logOut);
+app.post("/api/profile", profileController.loadProfile);
 
 
 // ========================================================================== //

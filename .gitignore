@@ -8,4 +8,4 @@ node_modules
 dump.rdb
 
 # Database
-.db
+everyclass.db
