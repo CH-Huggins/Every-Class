@@ -7,7 +7,7 @@ async function createNewUser (req, res) {
     console.log(req.body);
     const {email, pswd} = req.body;
 
-    console.log(email, pswd, "this is in controller");
+    console.log(email, pswd);
     const createUser = await userModel.addUser(email, pswd);
 
     if (!createUser) {
@@ -20,12 +20,14 @@ async function createNewUser (req, res) {
 async function logIn (req, res) {
     const {email, pswd} = req.body;
     const user = userModel.getUserbyEmail(email);
+    console.log(user);
 
+    // update ejs to display no email found
     if (!email) {
         return res.sendStatus(400);
     }
 
-    // ** UPDATE THIS TO RETURN A BETTER RESPONSE STATUS WHEN FAILED
+    // update ejs to display incorrect password
     const correct = await argon2.verify(user.hash, pswd);
     if (!correct) {
         return res.sendStatus(400);
@@ -33,6 +35,7 @@ async function logIn (req, res) {
 
     req.session.regenerate( (error) => {
         if(error) {
+            //update to render error on login
             console.log(error);
             return res.sendStatus(500);
         }
@@ -42,8 +45,25 @@ async function logIn (req, res) {
             "userID": user.userID,
         }
 
-        return res.sendStatus(200);
+        var name = email.split(".")[0].toString();
+        name = name.charAt(0).toUpperCase() + name.slice(1);
+        return res.render("generalSpace", {"email": name});
     });
+}
+
+async function logOut(req, res) {
+    if (req.session) {
+        req.session.destroy( (error) => {
+            if (error) {
+                res.render("log_in");
+            } else {
+                res.send('Logout successful')
+            }
+        });
+    } 
+    else {
+        res.end()
+    }
 }
 
 //function register(req, res) {
@@ -80,5 +100,6 @@ async function logIn (req, res) {
 
 module.exports = {
     createNewUser,
-    logIn, 
+    logIn,
+    logOut,
 }
