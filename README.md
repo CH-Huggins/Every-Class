@@ -22,8 +22,12 @@ Things to fix: The input display on the index
         Users table was modified, now we are implementing uuid as our user's ID
         Index was fixed.
 
-Friday, October 14th, 2022:
-Schema.sql modified -> Majors were inserted
+Friday, October 14th 2022:
+        Schema.sql was modified -> All the majors are available now
+
+Sunday, October 23rd 2022:
+        Session management is working (so far). This last commit was after Jacob's update.
+
 # base-code (Read for install instructions)
 The foundation needed for a website to avoid repetition.
 

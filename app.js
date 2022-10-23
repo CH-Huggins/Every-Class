@@ -6,6 +6,15 @@
 
 require("dotenv").config();
 
+// Standard App Setup
+const express = require("express");
+const app = express();
+
+var bodyParser = require('body-parser');
+
+app.use(bodyParser.json()); // for parsing application/json
+app.use(bodyParser.urlencoded({ extended: true }))
+
 // Production Security
 const helmet = require("helmet");
 
@@ -15,15 +24,13 @@ const isDevelopement = !process.env.NODE_ENV || process.env.NODE_ENV === "develo
 // Initializing variable for if deploying in production
 const isProduction = process.env.NODE_ENV === "production";
 
-//Redos Session Management
+//Redis Session Management
 const redis = require('redis');
 const session = require('express-session');
 let RedisStore = require('connect-redis')(session);
 let redisClient = redis.createClient();
 
-// Standard App Setup
-const express = require("express");
-const app = express();
+
 
 // if in production, set up protections
 if (isProduction) {
@@ -45,6 +52,9 @@ const sessionConfig = {
 	    maxAge: process.env.MAX_AGE || 1000 * 60 * 60 * 8, // Defaults to 8 hours
 	}
 };
+app.use(session(sessionConfig));
+
+
 
 // Error Handlers
 const {notFoundHandler, productionErrorHandler, catchAsyncErrors} = require("./utils/errorHandlers");
@@ -54,13 +64,13 @@ const {notFoundHandler, productionErrorHandler, catchAsyncErrors} = require("./u
 // ========================================================================== //
 
 // Validators
-//const {nameValidator} = require("./Validators/nameValidator");
+const userValidator = require("./Validators/userValidator");
 
 // Controllers
+const userController = require("./Controllers/userController");
 //const nameController = require("./Controllers/nameController");
-const loginController = require("./Controllers/loginController");
-const registerController = require("./Controllers/registerController");
-const libraryController = require("./Controllers/libraryController");
+//const loginController = require("./Controllers/loginController");
+//const registerController = require("./Controllers/registerController");
 //const databaseController = require("./Controllers/databaseController");
 
 // Global Middleware
@@ -71,10 +81,12 @@ app.use(express.json({limit: '200kb'}));
 // Endpoints (Seperate into alotted sections) DONT FORGET VALIDATORS
 //app.get("/location/:possibleParam", nameValidator, nameController.renderName);
 
-app.get("/home", loginController.loginControl);
-app.get("/setup", registerController.register);
+//app.get("/home", loginController.loginControl)
+//app.get("/setup", registerController.register)
 
-app.get("/library", libraryController.renderLibrary);
+app.post("/api/user", userValidator.registerValidator, userController.createNewUser);
+app.post("/api/login", userValidator.loginValidator, userController.logIn);
+
 
 // ========================================================================== //
 // ============================ Error Handlers ============================== //

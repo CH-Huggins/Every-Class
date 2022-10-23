@@ -27,7 +27,6 @@ function login(email, pass) {
     }else{
         return false;
     }
-
 }
 
 module.exports = {
