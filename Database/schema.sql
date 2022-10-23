@@ -1,10 +1,18 @@
 CREATE TABLE IF NOT EXISTS users(
 userID   TEXT,
-email    VARCHAR(40) not null,
+email    VARCHAR(40) UNIQUE NOT NULL,
 hash     TEXT UNIQUE NOT NULL,
 name     VARCHAR(35),
 validated boolean default (false),
 primary key (userID)
+);
+
+CREATE TABLE IF NOT EXISTS Posts (
+postID TEXT PRIMARY KEY,
+author TEXT NOT NULL,
+postText TEXT NOT NULL,
+likes INTEGER NOT NULL DEFAULT 0 CHECK (likes > 0),
+FOREIGN KEY(author) REFERENCES users(userID)
 );
 
 CREATE TABLE IF NOT EXISTS  students(
