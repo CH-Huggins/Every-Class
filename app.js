@@ -70,6 +70,9 @@ const postValidator = require("./Validators/postValidator");
 // Controllers
 const userController = require("./Controllers/userController");
 const postController = require("./Controllers/postController");
+
+// Nav Bar Controllers
+const spaceController = require("./Controllers/spaceController");
 const profileController = require("./Controllers/profileController");
 
 // Global Middleware
@@ -83,9 +86,12 @@ app.use(express.json({limit: '200kb'}));
 app.post("/api/user", userValidator.registerValidator, userController.createNewUser);
 app.post("/api/login", userValidator.loginValidator, userController.logIn);
 app.post("/api/posts", postValidator.postValidator, postController.createPost);
-app.post("/api/logOut", userController.logOut);
-app.post("/api/profile", profileController.loadProfile);
 
+// Nav Bar
+
+app.get("/api/home", spaceController.renderHome);
+app.get("/api/profile", profileController.loadProfile);
+app.post("/api/logOut", userController.logOut);
 
 // ========================================================================== //
 // ============================ Error Handlers ============================== //

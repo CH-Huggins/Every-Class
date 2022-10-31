@@ -47,7 +47,7 @@ async function logIn (req, res) {
 
         var name = email.split(".")[0].toString();
         name = name.charAt(0).toUpperCase() + name.slice(1);
-        return res.render("generalSpace", {"email": name});
+        return res.redirect("/api/home");
     });
 }
 
@@ -65,38 +65,6 @@ async function logOut(req, res) {
         res.end()
     }
 }
-
-//function register(req, res) {
-//    const email = req.query.email;
-//    const pass = req.query.pswd;
-//    const passVerif = req.query.pswd_verify;
-//
-//    if (registerModel.checkEmail(email) === true && 
-//        registerModel.checkPassword(pass, passVerif) === true){
-//        // Store the information
-//        registerModel.storeCredentials(email, pass);
-//        // Render the setup page
-//        res.render("setup", {"email": email});
-//    } else {
-//        // Credentials Invalid
-//        res.render("sign_up");
-//    }
-//}
-//
-//const loginModel = require("../Models/loginModel");
-///* ----------------------------------------------------
-//        REQUIRE DATA FROM log_in.html
-//   ---------------------------------------------------- */
-//function loginControl(req, res){
-//    var email = req.query.email;
-//    var password = req.query.pswd;
-//    if(loginModel.login(email, password)){
-//        res.render("home", {"email": email});
-//    }else{
-//        res.render("log_in")
-//    }
-//    
-//}
 
 module.exports = {
     createNewUser,

@@ -1,0 +1,141 @@
+/* ========================================================================== */
+/* ---------------------------- Containers ---------------------------------- */
+/* ========================================================================== */
+
+body {
+    /* Background */
+    background-image: url("../media/images/EveryClass.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.wrapper {
+    /* Border */
+    border: solid;
+    border-color: black;
+    background-color: white;
+
+    /* Size */
+    height: 90%;
+    width: 90%;
+
+    /* Position */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.postWrapper {
+    /* Border */
+    border: solid;
+    border-color: black;
+
+    /* Size */
+    height: 50%;
+    width: 95%;
+
+    /* Position */
+    text-align: center;
+    display: inline-block;
+    margin-top: 5%;
+    transform: translate(2.5%, 0);
+
+    /* Content */
+    font-family: newFont;
+    font-size: 12px;
+    overflow-y: scroll;
+}
+
+.post {
+    /* Border */
+    border: solid;
+    border-color: black;
+
+    /* Size */
+
+    /* Position */
+    margin: 2px;
+ 
+    /* Content */
+    font: black;
+    font-family: newFont;
+}
+
+#numbers {
+    font-family: Arial;
+}
+
+/* ========================================================================== */
+/* --------------------------- Non-Container -------------------------------- */
+/* ========================================================================== */
+
+img {
+    /* Border */
+    border-radius: 60%;
+    border: 2px solid;
+    border-color: black;
+
+    /* Size */
+    height: 150px;
+    width: 150px;
+
+    /* Position */
+    float: left;
+    margin-top: 5%;
+    margin-left: 5%;
+}
+
+.edit {
+    /* Border */
+    border: solid;
+    border-color: black;
+    border-radius: 5%;
+    background-color: #736363;
+    
+    /* Size */
+    height: 7.5%;
+    width: 10%;
+    padding: 1%;
+
+    /* Position */
+    float: right;
+    margin-right: 2.5%;
+    margin-top: 2.5%;
+
+    /* Content */
+    font-family: newFont;
+    font-size: 20px;
+    color: white;
+}
+
+.edit:hover {
+    cursor: pointer;
+}
+
+.data {
+    /* Size */
+    width: 25%;
+    height: 10%;
+    padding: 1%;
+
+    /* Position */
+    margin-left: 5%;
+    margin-top: 2%;
+    float: left;
+    display: block;
+
+    /* Content */
+    font-family: newFont;
+    font-size: 20px;
+}
+
+/* ========================================================================== */
+/* ------------------------------- Fonts ------------------------------------ */
+/* ========================================================================== */
+
+@font-face {
+    /* https://www.dafont.com/fort-quinsy.font */
+    font-family: newFont;
+    src: url("../media/fonts/Cocogoose.ttf") format("opentype");
+}
