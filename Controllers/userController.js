@@ -11,7 +11,7 @@ async function createNewUser (req, res) {
     const createUser = await userModel.addUser(email, pswd);
 
     if (!createUser) {
-        return res.sendStatus(409);
+        return res.render("sign_up");
     }
 
     res.sendStatus(201);
@@ -20,17 +20,24 @@ async function createNewUser (req, res) {
 async function logIn (req, res) {
     const {email, pswd} = req.body;
     const user = userModel.getUserbyEmail(email);
-    console.log(user);
+    console.log("Initial Login Info", user);
 
     // update ejs to display no email found
     if (!email) {
         return res.sendStatus(400);
     }
 
+    var name = email.split(".")[0].toString();
+    name = name.charAt(0).toUpperCase() + name.slice(1);
+
+    if(!user) {
+        return res.render("log_in");
+    }
+
     // update ejs to display incorrect password
     const correct = await argon2.verify(user.hash, pswd);
     if (!correct) {
-        return res.sendStatus(400);
+        return res.render("log_in");
     };
 
     req.session.regenerate( (error) => {
@@ -43,60 +50,30 @@ async function logIn (req, res) {
         req.session.user = {
             "email": user.email,
             "userID": user.userID,
+            "name": name,
         }
-
-        var name = email.split(".")[0].toString();
-        name = name.charAt(0).toUpperCase() + name.slice(1);
-        return res.render("generalSpace", {"email": name});
+        console.log("User Info", req.session.user);
+        return res.render("home", {"email": name});
     });
 }
 
-async function logOut(req, res) {
+function logOut(req, res) {
     if (req.session) {
         req.session.destroy( (error) => {
             if (error) {
-                res.render("log_in");
+                //deal with error
+                return res.redirect("http://localhost:8080/");
             } else {
-                res.send('Logout successful')
+                req.session.isLoggedIn = false;
+                req.session = null;
+                return res.redirect("http://localhost:8080/");
             }
         });
     } 
     else {
-        res.end()
+        res.end();
     }
 }
-
-//function register(req, res) {
-//    const email = req.query.email;
-//    const pass = req.query.pswd;
-//    const passVerif = req.query.pswd_verify;
-//
-//    if (registerModel.checkEmail(email) === true && 
-//        registerModel.checkPassword(pass, passVerif) === true){
-//        // Store the information
-//        registerModel.storeCredentials(email, pass);
-//        // Render the setup page
-//        res.render("setup", {"email": email});
-//    } else {
-//        // Credentials Invalid
-//        res.render("sign_up");
-//    }
-//}
-//
-//const loginModel = require("../Models/loginModel");
-///* ----------------------------------------------------
-//        REQUIRE DATA FROM log_in.html
-//   ---------------------------------------------------- */
-//function loginControl(req, res){
-//    var email = req.query.email;
-//    var password = req.query.pswd;
-//    if(loginModel.login(email, password)){
-//        res.render("home", {"email": email});
-//    }else{
-//        res.render("log_in")
-//    }
-//    
-//}
 
 module.exports = {
     createNewUser,

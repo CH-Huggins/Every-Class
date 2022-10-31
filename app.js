@@ -82,7 +82,7 @@ app.use(express.json({limit: '200kb'}));
 app.post("/api/user", userValidator.registerValidator, userController.createNewUser);
 app.post("/api/login", userValidator.loginValidator, userController.logIn);
 app.post("/api/posts", postValidator.postValidator, postController.createPost);
-app.post("/api/logOut", userController.logOut);
+app.get("/api/logOut", userController.logOut);
 
 
 // ========================================================================== //

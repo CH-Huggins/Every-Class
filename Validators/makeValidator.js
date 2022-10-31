@@ -17,7 +17,7 @@ function makeValidator (schema, prop) {
         if (error) {
             const errorMessages = error.details.map(detail => detail.message);
             //return res.status(400).json({errorMessages});
-            return res.render("sign_up");
+            return res.sendStatus(400);
         } 
 
         req[prop] = value;

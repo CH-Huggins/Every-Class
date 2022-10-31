@@ -16,6 +16,7 @@ FOREIGN KEY(author) REFERENCES users(userID)
 );
 
 CREATE TABLE IF NOT EXISTS  students(
+userID, TEXT,
 email varchar(40) not null,
 name varchar(35),
 GPA decimal(3,2) ,

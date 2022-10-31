@@ -29,7 +29,14 @@ function makePost(text, author) {
     }
 }
 
+function getUserPosts() {
+    const sql = `
+        SELECT`
+
+}
+
 
 module.exports = {
     makePost,
+    getUserPosts,
 }
