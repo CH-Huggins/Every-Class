@@ -3,174 +3,232 @@
 /* ========================================================================== */
 
 body {
+    /* Content */
     overflow: hidden;
 }
 
 .left_block {
-    width: 60%;
-    height: 900px;
-    object-fit: cover;
-    display: inline-block;
+    /* Background */
     border: solid;
     border-width: 5px;
     border-bottom: none;
     border-color: #000000;
+
+    /* Size */
+    width: 60%;
+    height: 900px;
+
+    /* Position */
+    display: inline-block;
     transform: translate(-5%, -5%);
+
+    /* Content */
+    object-fit: cover;
 }
 
 .container {
+    /* Size */
     width: fit-content;
+
+    /* Position */
     position: fixed;
     top: 20%;
     left: 78%;
-    /* bring your own prefixes */
     transform: translate(-50%, -50%);
 }
 
 .text {
-    margin: auto;
-    background-color: rgba(255, 255, 255, 0.8);
+    /* Border */
     border: solid;
     border-color: #92abb0;
     border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+
+    /* Size */
     width: fit-content;
+    
+    /* Position */
+    margin: auto;
     margin-bottom: 12.5%;
 }
 
 /* ========================================================================== */
-/* -------------------------------- Text ------------------------------------ */
+/* --------------------------- Non-Container -------------------------------- */
 /* ========================================================================== */
 
 .title {
+    /* Size */
+    width: auto;
+
+    /* Position */
     display: block;
-    color: black;
     font-size: 100px;
     margin: auto;
     margin-bottom: 0%;
-    width: auto;
     text-align: center;
+    
+    /* Content */
     font-family: newFont;
     text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
+    color: black;
 }
 
 .description {
+    /* Size */
+    width: 40%;
+    padding: 5%;
+
+    /* Position */
     display: block;
+
+    /* Content */
     color: black;
     font-size: 24px;
     margin: auto;
-    padding: 5%;
-    width: 40%;
     text-align: center;
     font-family: newFont;
 }
 
 .container2 {
+    /* Size */
     width: fit-content;
+
+    /* Position */
     position: fixed;
     top: 45%;
     left: 78%;
-    /* bring your own prefixes */
     transform: translate(-50%, -50%);
 }
 
 input {
+    /* Background */
+    border: solid;
+    border-radius: 5px;
+
+    /* Size */
+    width: 40%;
+
+    /* Position */
     display: inline-block;
     left: 0%;
     text-align: center;
-    width: 40%;
     margin-left: 30%;
-    margin-bottom: 5%;
+    margin-bottom: 1%;
+
+    /* Content */
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
-    border: solid;
-    border-radius: 5px;
-    margin-bottom: 2%;
 }
 
 label {
+    /* Size */
+    width: 100%;
+
+    /* Position */
     display: inline-block;
     text-align: center;
-    width: 100%;
     padding-bottom: 2%;
+
+    /* Content */
     font-family: newfont;
 }
 
 .submit {
-    display: block;
-    text-align: center;
-    font-family: newFont;
-
-    border-color: #000000;
-    background-color: white;
-    color: black;
-
-    padding: 2.5%;
-    font-size: 20px;
-    width: 60%;
+    /* Border */
     border: solid;
     border-radius: 10px;
+    border-color: #000000;
+    background-color: white;
+
+    /* Size */
+    width: 60%;
+    padding: 2.5%;
+
+    /* Position */
+    display: block;
+    text-align: center;
     margin-left: 21%;
-    
+
+    /* Content */
+    font-family: newFont;
+    color: black;
+    font-size: 20px; 
     box-shadow: 0px 5px rgba(0, 44, 88, 0.5);
 }
 
 .submit:hover {
+    /* Background */
     background-color: rgba(204, 204, 204, 0.8);
+
+    /* Cursor */
     cursor: pointer;
 }
 
 #or {
+    /* Size */
     width: fit-content;
+
+    /* Position */
     position: fixed;
     top: 62.5%;
     left: 78.5%;
-    /* bring your own prefixes */
     transform: translate(-50%, -50%);
+
+    /* Content */
     font-family: newFont;
     font-size: 24px;
 }
 
 .error {
+    /* Size */
     width: fit-content;
+
+    /* Position */
     top: 60%;
     margin-left: 51%;
     left: 78.5%;
     transform: translate(-50%, -50%);
+
+    /* Content */
     font-family: newFont;
 }
 
 /* ========================================================================== */
-/* ------------------------------ Nav Bar ----------------------------------- */
+/* ------------------------------ Sign Up ----------------------------------- */
 /* ========================================================================== */
 
 .nav a {
-    text-align: center;
-    display: block;
-    font-family: newFont;
-    position: fixed;
-
-    border-color: #000000;
-    background-color: white;
-    color: black;
-
-    padding: 2.5%;
-
-    text-decoration: none;
-    font-size: 40px;
-    width: 20%;
+    /* Border */
     border: solid;
     border-radius: 20px;
-    
-    box-shadow: 0px 5px rgba(0, 44, 88, 0.5);
-    
+    border-color: #000000;
+    background-color: white;
+
+    /* Size */
+    width: 20%;
+    padding: 2.5%;
+
+    /* Position */
+    position: fixed;
+    text-align: center;
+    display: block;
     top: 80%;
     left: 78.5%;
     transform: translate(-50%, -50%);
+
+    /* Content */
+    font-family: newFont;
+    color: black;
+    text-decoration: none;
+    font-size: 40px;
+    box-shadow: 0px 5px rgba(0, 44, 88, 0.5);
 }
-  
-  /* Change the color of links on hover */
+
 .nav a:hover {
+    /* Background */
     background-color: rgba(204, 204, 204, 0.8);
+
+    /* Cursor */
     cursor: pointer;
 }
 

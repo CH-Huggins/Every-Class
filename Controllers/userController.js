@@ -53,7 +53,7 @@ async function logIn (req, res) {
             "name": name,
         }
         console.log("User Info", req.session.user);
-        return res.render("home", {"email": name});
+        return res.redirect("/api/home");
     });
 }
 

@@ -3,27 +3,31 @@
 /* ========================================================================== */
 
 body {
+    /* Background */
     background-image: url("../media/images/class.png");
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .container {
-    width: fit-content;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    margin: 1.25%;
-    padding: 1.25%;
-    /* bring your own prefixes */
-    transform: translate(-50%, -50%);
+    /* Border */
     border-width: thick;
     border-radius: 10px;
     border-color: black;
     border: 10px solid;
     background-color: white;
+
+    /* Size */
     width: 50%;
     height: 75%;
+    padding: 1.25%;
+
+    /* Position */
+    position: fixed;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    margin: 1.25%;
 }
 
 /* ========================================================================== */
@@ -31,87 +35,130 @@ body {
 /* ========================================================================== */
 
 h1 {
+    /* Size */
     width:  40%;
-    text-align: center;
-    margin: auto;
     padding-top: 2.5%;
     padding-bottom: 2.5%;
+
+    /* Position */
+    text-align: center;
+    margin: auto;
+    
+    /* Content */
     font-family: newFont;
-    font-size: 70px;
+    font-size: 40px;
 }
 
 label {
-    text-align: center;
-    display: inline-block;
-    font-family: newFont;
-    font-size: 40px;
+    /* Size */
     width: auto;
     padding: 2.5%;
+
+    /* Position */
+    text-align: center;
+    display: inline-block;
     margin-left: 18%;
+
+    /* Content */
+    font-family: newFont;
+    font-size: 40px;
 }
 
 input {
+    /* Size */
+    width: 75%;
+
+    /* Position */
     text-align: center;
     display: inline-block;
+    margin-left: 12.5%;
+
+    /* Content */
     font-family: newFont;
     font-size: 30px;
-    width: 75%;
-    margin-left: 12.5%;
 }
 
 button {
-    font-family: newFont;
-    background-color: #38ba84; /* Green */
+    /* Border */
     border: 2px solid;
     border-color: #000000;
-    color: rgb(0, 0, 0);
+    background-color: #38ba84;
+
+    /* Size */
     padding: 1.75% 4.3%;
-    text-align: center;
-    text-decoration: none;
-    font-size: 16px;
+
+    /* Position */
     margin: 1.75%;
     margin-left: 2.5%;
     transition: .25s ease-in-out;
+    text-align: center;
+
+    /* Content */
+    font-family: newFont;
+    font-size: 16px;
+    color: black;
 }
 .terms {
+    /* Position */
     text-align: center;
 }
 
 .error {
+    /* Size */
+    width: 75%;
+
+    /* Position */
     text-align: center;
     display: inline-block;
+    margin-left: 13%;
+
+    /* Content */
     font-family: newFont;
     font-size: 14px;
-    width: 75%;
-    margin-left: 13%;
 }
 
 .backbtn {
+    /* Position */
     margin-left: 30%;
 }
 
 .backbtn:hover {
-    transition: .25s ease-in-out;
-    cursor: pointer;
-    margin-left: calc(27.5%);
+    /* Size */
     padding-left: 6.78%;
+
+    /* Position */
+    transition: .25s ease-in-out;
+    margin-left: calc(27.5%);
+
+    /* Content */
+    cursor: pointer;
 }
 
 .submitbtn:hover {
-    transition: .25s ease-in-out;
-    cursor: pointer;
+    /* Size */
     padding-right: 6.78%;
+
+    /* Position */
+    transition: .25s ease-in-out;
+
+    /* Content */
+    cursor: pointer;
 }
 
 /* Class exists only in the ejs file for label changes */
 .ejs {
+    /* Size */
+    width: 500px;
+    padding: 0px;
+
+    /* Position */
     text-align: center;
     display: inline-block;
+    margin-left: 13%;
+
+    /* Content */
     font-family: newFont;
     font-size: 40px;
-    width: 500px;
-    margin-left: 13%;
-    padding: 0px;
 }
 
 /* ========================================================================== */
