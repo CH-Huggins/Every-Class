@@ -44,12 +44,13 @@ body {
 .courseDivs {
     /* Size */
     padding: 1%;
+    width: 13%;
 
     /* Position */
     display: inline-block;
     text-align: center;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 8%;
+    margin-right: 8%;
 }
 
 /* ========================================================================== */

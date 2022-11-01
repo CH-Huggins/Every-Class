@@ -17,6 +17,7 @@ body {
     width: 90%;
 
     /* Position */
+    text-align: center;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -38,7 +39,7 @@ body {
     display: inline-block;
     text-align: center;
     vertical-align: middle;
-    margin-left: 5%;
+    margin-left: 4%;
     margin-right: 3%;
 
     /* Content */
@@ -60,11 +61,14 @@ body {
 
     /* Size */
     padding: 1%;
-    width: max-content;
+    margin: 0 auto;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    width: 40%;
     
     /* Position */
     text-align: center;
-    transform: translate(140%, 0);
+    display: block;
 
     /* Content */
     font-family: Arial;

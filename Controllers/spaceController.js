@@ -32,7 +32,7 @@ function renderSpace(req, res) {
     const post = {"date": "10/31/2022", 
         "time": "1:00pm", 
         "location": "Home", 
-        "content": "Testing the home page",
+        "content": "Testing the " + location + " page",
         "user": user}
     const posts = [post, post, post, post, post, post, post];
 
