@@ -74,6 +74,7 @@ const postController = require("./Controllers/postController");
 // Nav Bar Controllers
 const spaceController = require("./Controllers/spaceController");
 const profileController = require("./Controllers/profileController");
+const courseController = require("./Controllers/courseController")
 
 // Global Middleware
 app.set('view engine', 'ejs');
@@ -88,10 +89,13 @@ app.post("/api/login", userValidator.loginValidator, userController.logIn);
 app.post("/api/posts", postValidator.postValidator, postController.createPost);
 
 // Nav Bar
-
 app.get("/api/home", spaceController.renderHome);
+app.get("/api/courses", courseController.renderCourses);
 app.get("/api/profile", profileController.loadProfile);
 app.post("/api/logOut", userController.logOut);
+
+// Course
+app.get("/api/course/:course", courseController.renderCourse);
 
 // ========================================================================== //
 // ============================ Error Handlers ============================== //

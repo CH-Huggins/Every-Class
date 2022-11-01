@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses</title>
+    <link rel="stylesheet" href="/css/courses.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <script src="/js/nav.js" defer>
+        function logOut() {
+            const logOut = document.getElementById("logout");
+            logOut.onclick
+        }
+    </script>
+</head>
+<body>
+    <div id="nav">
+        <!-- TODO: Create app.gets for each of these views -->
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="/api/home">Home</a>
+        <a href="/api/courses">Courses</a>
+        <a href="/library">Library</a>
+        <a href="/messages">Messages</a>
+        <a href="/api/profile">Profile</a>
+        <!-- Log Out needs to call method to end user sessions -->
+        <a id="logout" href="/api/logout">Log Out</a>
+    </div>
+    <span style="font-size:50px;cursor:pointer;color:white;" onclick="openNav()">&#9776;</span>
+    <div class="wrapper">
+        <button class="addCourse" onclick="window.location.href = '/api/addCourse'">+</button>
+        <% if (courses.length == 0) { %>
+            <p id="noClass"> You have no courses. Try adding some with the + button.</p>
+        <% } else { %>
+            <% for (let i = 0; i < courses.length; i++) { %>
+                <a href="/api/course/<%= courses[i].CourseName %>">
+                    <div class="course">
+                        <div class="courseDivs">
+                            <p class="details">CRN:</p>
+                            <p class="courseDetails">
+                            <%= courses[i].CRN %>
+                            </p>
+                        </div>
+                        <div class="courseDivs">
+                            <p class="details">Course:</p>
+                            <p class="courseDetails">
+                            <%= courses[i].CourseName %>
+                            </p>
+                        </div>
+                        <div class="courseDivs">
+                            <p class="details">Credits:</p>
+                            <p class="courseDetails">
+                                <%= courses[i].Credits %>
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            <% } %>
+        <% } %>
+    </div>
+</body>
+</html>
