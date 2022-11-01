@@ -94,8 +94,17 @@ app.get("/api/courses", courseController.renderCourses);
 app.get("/api/profile", profileController.loadProfile);
 app.post("/api/logOut", userController.logOut);
 
-// Course
+// Course Pages
+// Course Main Page
 app.get("/api/course/:course", courseController.renderCourse);
+// Course Space
+app.get("/api/space/:course", spaceController.renderSpace);
+// TODO
+// Review Page
+app.get("/api/review/:course", courseController.renderCourseReviews);
+// TODO
+// Add Course Page
+app.get("/api/addCourse", courseController.renderAddCourse);
 
 // ========================================================================== //
 // ============================ Error Handlers ============================== //
