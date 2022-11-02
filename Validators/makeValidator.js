@@ -6,7 +6,6 @@
 
 function makeValidator (schema, prop) {
     return function (req, res, next) {
-        console.log(req.params);
         const {value, error} = schema.validate(req[prop], {
             abortEarly: false,
             stripUnknown: true, 
@@ -17,7 +16,8 @@ function makeValidator (schema, prop) {
         
         if (error) {
             const errorMessages = error.details.map(detail => detail.message);
-            return res.status(400).json({errorMessages});
+            //return res.status(400).json({errorMessages});
+            return res.render("sign_up");
         } 
 
         req[prop] = value;

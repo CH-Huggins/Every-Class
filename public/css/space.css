@@ -3,7 +3,8 @@
 /* ========================================================================== */
 
 body {
-    background-image: linear-gradient(180deg,  #c31d1d, #000000);
+    background-image: url("../media/images/EveryClass.png");
+    /*linear-gradient(180deg,  #c31d1d, #000000);*/
 }
 
 #nav {

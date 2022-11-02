@@ -65,13 +65,12 @@ const {notFoundHandler, productionErrorHandler, catchAsyncErrors} = require("./u
 
 // Validators
 const userValidator = require("./Validators/userValidator");
+const postValidator = require("./Validators/postValidator");
 
 // Controllers
 const userController = require("./Controllers/userController");
-//const nameController = require("./Controllers/nameController");
-//const loginController = require("./Controllers/loginController");
-//const registerController = require("./Controllers/registerController");
-//const databaseController = require("./Controllers/databaseController");
+const postController = require("./Controllers/postController");
+const profileController = require("./Controllers/profileController");
 
 // Global Middleware
 app.set('view engine', 'ejs');
@@ -81,11 +80,11 @@ app.use(express.json({limit: '200kb'}));
 // Endpoints (Seperate into alotted sections) DONT FORGET VALIDATORS
 //app.get("/location/:possibleParam", nameValidator, nameController.renderName);
 
-//app.get("/home", loginController.loginControl)
-//app.get("/setup", registerController.register)
-
 app.post("/api/user", userValidator.registerValidator, userController.createNewUser);
 app.post("/api/login", userValidator.loginValidator, userController.logIn);
+app.post("/api/posts", postValidator.postValidator, postController.createPost);
+app.post("/api/logOut", userController.logOut);
+app.post("/api/profile", profileController.loadProfile);
 
 
 // ========================================================================== //

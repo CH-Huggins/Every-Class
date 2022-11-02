@@ -2,7 +2,10 @@ CREATE TABLE IF NOT EXISTS users(
 userID   TEXT,
 email    VARCHAR(40) UNIQUE NOT NULL,
 hash     TEXT UNIQUE NOT NULL,
-name     VARCHAR(35),
+firstName     VARCHAR(35),
+lastName     VARCHAR(35),
+GPA DECIMAL(3,2) ,
+Credits INTEGER CHECK (credits <= 18),
 validated boolean default (false),
 primary key (userID)
 );
@@ -15,13 +18,6 @@ likes INTEGER NOT NULL DEFAULT 0 CHECK (likes > 0),
 FOREIGN KEY(author) REFERENCES users(userID)
 );
 
-CREATE TABLE IF NOT EXISTS  students(
-email varchar(40) not null,
-name varchar(35),
-GPA decimal(3,2) ,
-FOREIGN KEY (email) REFERENCES users(email) on delete cascade on update cascade,
-primary key (email)
-);
 
 CREATE TABLE IF NOT EXISTS  departments(
 Name varchar(30),
@@ -38,7 +34,7 @@ primary key (CRN)
 CREATE TABLE IF NOT EXISTS  MajorsIn(
 email varchar(40) not null,
 name varchar(30) not null,
-FOREIGN KEY (email) REFERENCES students (email) on delete cascade on update cascade,
+FOREIGN KEY (email) REFERENCES users (email) on delete cascade on update cascade,
 FOREIGN KEY (name) REFERENCES departments (name) on delete cascade on update cascade,
 PRIMARY KEY (email,name)
 );
@@ -60,7 +56,7 @@ semesterID varchar(30),
 email varchar(40) not null,
 name varchar(30) not null,
 totalCredits INTEGER NOT NULL DEFAULT 0 CHECK (totalCredits <= 18),
-FOREIGN KEY (email) REFERENCES students (email) on delete cascade on update cascade,
+FOREIGN KEY (email) REFERENCES users (email) on delete cascade on update cascade,
 FOREIGN KEY (name) REFERENCES departments (name) on delete cascade on update cascade,
 FOREIGN KEY (semesterID) REFERENCES Semesters(semesterID) on delete cascade on update cascade,
 PRIMARY KEY (SemesterId,email,name)
