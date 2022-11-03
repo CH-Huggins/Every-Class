@@ -16,12 +16,13 @@ function renderCourses(req, res) {
     // For when implement
     //const courses = courseModel.getUsersCourses(email);
     // Practice
-    const course1 = {"CRN": "402395", "CourseName": "Over Achieving 101", "Credits": "1"}
-    const course2 = {"CRN": "404923", "CourseName": "Look At This Shit", "Credits": "4"}
-    const course3 = {"CRN": "453032", "CourseName": "It Totally Works", "Credits": "3"}
-    const course4 = {"CRN": "432502", "CourseName": "This Is A Test", "Credits": "3"}
+    const course1 = {"CRN": "402395", "CourseName": "Debate", "Credits": "1"}
+    const course2 = {"CRN": "404923", "CourseName": "Physics II", "Credits": "4"}
+    const course3 = {"CRN": "453032", "CourseName": "Analysis of Algorithms", "Credits": "3"}
+    const course4 = {"CRN": "432502", "CourseName": "Database Systems", "Credits": "3"}
     const course5 = {"CRN": "463723", "CourseName": "Java Apps", "Credits": "3"}
-    const courses = [course1, course2, course3, course4, course5];
+    const course6 = {"CRN": "429853", "CourseName": "Software Engineering", "Credits": "3"}
+    const courses = [course1, course2, course3, course4, course5, course6];
 
     if (req.session.isLoggedIn){
         res.render("courses", {"courses": courses});
