@@ -62,6 +62,18 @@ FOREIGN KEY (semesterID) REFERENCES Semesters(semesterID) on delete cascade on u
 PRIMARY KEY (SemesterId,email,name)
 );
 
+CREATE TABLE IF NOT EXISTS CourseRating(
+CRN VARCHAR(10),
+UserID TEXT, 
+Punctuality DECIMAL(3,2) CHECK (Punctuality <= 5 ),
+Professionalism DECIMAL(3,2) CHECK (Professionalism <= 5),
+Easiness DECIMAL(3,2) CHECK (Easiness <= 5),
+Interaction DECIMAL(3,2) CHECK (Interaction <= 5),
+CurveFrequency DECIMAL(3,2) CHECK (CurveFrequency <= 5),
+FOREIGN KEY (CRN) REFERENCES Courses (CRN) on delete cascade on update cascade,
+FOREIGN KEY (UserID)  REFERENCES users (UserID) on delete cascade on update cascade,
+PRIMARY KEY (CRN, userID));
+
 -- DEPARMENTS
 -- Insert into deparments
 INSERT INTO Departments VALUES ('ACCOUNTING');
