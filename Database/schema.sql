@@ -1,4 +1,3 @@
-
 CREATE TABLE IF NOT EXISTS users(
 userID   TEXT,
 email    VARCHAR(40) UNIQUE NOT NULL,
@@ -6,7 +5,6 @@ hash     TEXT UNIQUE NOT NULL,
 firstName     VARCHAR(35),
 lastName     VARCHAR(35),
 GPA DECIMAL(3,2) ,
-Credits INTEGER CHECK (credits <= 18),
 validated boolean default (false),
 primary key (userID)
 );
@@ -55,12 +53,12 @@ primary key (semesterID)
 CREATE TABLE IF NOT EXISTS  TakenCourses(
 semesterID varchar(30),
 email varchar(40) not null,
-name varchar(30) not null,
+CRN Varchar(10) not null,
 totalCredits INTEGER NOT NULL DEFAULT 0 CHECK (totalCredits <= 18),
 FOREIGN KEY (email) REFERENCES users (email) on delete cascade on update cascade,
-FOREIGN KEY (name) REFERENCES departments (name) on delete cascade on update cascade,
+FOREIGN KEY (CRN) REFERENCES courses (CRN) on delete cascade on update cascade,
 FOREIGN KEY (semesterID) REFERENCES Semesters(semesterID) on delete cascade on update cascade,
-PRIMARY KEY (SemesterId,email,name)
+PRIMARY KEY (SemesterId, email, CRN)
 );
 
 CREATE TABLE IF NOT EXISTS CourseRating(
