@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Course</title>
+</head>
+<body>
+    <form id="addCourse" action="/api/addedCourse" method="POST">
+        <label for="courses"><b>Courses:</b></label>
+        <select name="CRN" id="CRN">
+            <% for (let i = 0; i < allCourses.length; i++){ %>
+                <option value="<%= allCourses[i].CRN %>">
+                    <%= allCourses[i].CourseName %>
+                </option>
+            <% } %>
+        </select>
+        <button type="submit" class="submit" value="Submit">Add Course</button>
+    </form>
+</body>
+</html>

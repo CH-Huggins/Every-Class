@@ -10,21 +10,13 @@
 **/
 "use strict"
 
+const { RedisClient } = require("redis");
 const courseModel = require("../Models/courseModel");
 
 function renderCourses(req, res) {
-    // For when implement
-    //const courses = courseModel.getUsersCourses(email);
-    // Practice
-    const course1 = {"CRN": "402395", "CourseName": "Debate", "Credits": "1"}
-    const course2 = {"CRN": "404923", "CourseName": "Physics II", "Credits": "4"}
-    const course3 = {"CRN": "453032", "CourseName": "Analysis of Algorithms", "Credits": "3"}
-    const course4 = {"CRN": "432502", "CourseName": "Database Systems", "Credits": "3"}
-    const course5 = {"CRN": "463723", "CourseName": "Java Apps", "Credits": "3"}
-    const course6 = {"CRN": "429853", "CourseName": "Software Engineering", "Credits": "3"}
-    const courses = [course1, course2, course3, course4, course5, course6];
-
     if (req.session.isLoggedIn){
+        const courses = courseModel.getUsersCourses(req.session.user.email);
+        
         res.render("courses", {"courses": courses});
     } else {
         res.render("log_in");
@@ -32,10 +24,10 @@ function renderCourses(req, res) {
 }
 
 function renderCourse(req, res) {
-    const course = req.params.course;
-    const courseRating = courseModel.getCourseRating(course);
-
     if (req.session.isLoggedIn){
+        const course = req.params.course;
+        const courseRating = courseModel.getCourseRating(course);
+
         res.render("course", {"course": course, "courseRating": courseRating});
     } else {
         res.render("log_in");
@@ -44,10 +36,21 @@ function renderCourse(req, res) {
 
 // Need a view for still
 function renderAddCourse(req, res) {
-    const allCourses = courseModel.getAllCourses;
-
     if (req.session.isLoggedIn){
+        const allCourses = courseModel.getAllCourses();
+
         res.render("addCourse", {"allCourses": allCourses});
+    } else {
+        res.render("log_in");
+    }
+}
+
+function renderAddedCourse(req, res) {
+    if (req.session.isLoggedIn){
+        courseModel.addCourse(req.body.CRN, req.session.user.email);
+        const courses = courseModel.getUsersCourses(req.session.user.email);
+
+        res.render("courses", {"courses": courses});
     } else {
         res.render("log_in");
     }
@@ -61,5 +64,6 @@ module.exports = {
     renderCourses,
     renderCourse,
     renderAddCourse,
+    renderAddedCourse,
     renderCourseReviews
 }

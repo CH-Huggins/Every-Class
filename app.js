@@ -102,9 +102,9 @@ app.get("/api/space/:course", spaceController.renderSpace);
 // TODO
 // Review Page
 app.get("/api/review/:course", courseController.renderCourseReviews);
-// TODO
 // Add Course Page
 app.get("/api/addCourse", courseController.renderAddCourse);
+app.post("/api/addedCourse", courseController.renderAddedCourse);
 
 // ========================================================================== //
 // ============================ Error Handlers ============================== //
