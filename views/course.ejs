@@ -36,7 +36,7 @@
             </div>
         </a>
         <a href="/api/review/<%= course %>">
-            <div class="block">
+            <div class="block" style="text-align: center;">
                 <% if (courseRating == 0) { %>
                     <p class="right1">
                         This course currently has no reviews.
@@ -45,15 +45,47 @@
                         Be the first to add one!
                     </p>
                 <% } else { %>
-                    <p class="right2">
-                        This course is currently rated
-                    </p>
-                    <p class="rightNumber">
-                        <%= courseRating %>
-                    </p>
-                    <p class="right2">
-                        stars. Click here to find out why.
-                    </p>
+                    <h1>This Courses Reviews:</h1>
+                    <div class="rating">
+                        <p>
+                            Punctuality:
+                        </p>
+                        <p class="number">
+                            <%= courseRating.Punctuality %>
+                        </p>
+                    </div>
+                    <div class="rating">
+                        <p>
+                            Professionalism:
+                        </p>
+                        <p class="number">
+                            <%= courseRating.Professionalism %>
+                        </p>
+                    </div>
+                    <div class="rating">
+                        <p>
+                            Easiness:
+                        </p>
+                        <p class="number">
+                            <%= courseRating.Easiness %>
+                        </p>
+                    </div>
+                    <div class="rating">
+                        <p>
+                            Interaction:
+                        </p>
+                        <p class="number">
+                            <%= courseRating.Interaction %>
+                        </p>
+                    </div>
+                    <div class="rating">
+                        <p>
+                            Curve Frequency:
+                        </p>
+                        <p class="number">
+                            <%= courseRating.CurveFrequency %>
+                        </p>
+                    </div>
                 <% } %>
             </div>
         </a>

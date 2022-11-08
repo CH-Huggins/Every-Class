@@ -22,145 +22,80 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
-
-.block {
-    /* Border */
-    border: solid;
-    border-color: black;
-    background-color: white;
-    border-radius: 5%;
-
-    /* Size */
-    height: 60%;
-    width: 40%;
-
-    /* Position */
-    display: inline-block;
-    text-align: center;
-    vertical-align: middle;
-    margin-left: 4%;
-    margin-right: 3%;
-
-    /* Content */
-    font-size: 24px;
-    font-family: Arial;
-    color: black
+    overflow-y: scroll;
 }
 
 /* ========================================================================== */
 /* --------------------------- Non-Container -------------------------------- */
 /* ========================================================================== */
 
-#courseName {
+h1 {
+    /* Position */
+    text-align: center;
+    margin-top: 17.5%;
+
+    /* Content */
+    font-family: newFont;
+}
+
+.description {
+    /* Position */
+    text-align: center;
+
+    /* Content */
+    font-family: newFont;
+    font-size: 12px;
+    color: rgb(85, 85, 85);
+}
+
+button {
     /* Border */
     border: solid;
-    border-radius: 5%;
-    border-color: black;
-    background-color: white;
+    border-radius: 1%;
 
     /* Size */
     padding: 1%;
-    margin: 0 auto;
-    margin-top: 5%;
-    margin-bottom: 5%;
-    width: 40%;
-    
-    /* Position */
-    text-align: center;
-    display: block;
-
-    /* Content */
-    font-family: Arial;
-    font-size: 28px;
-}
-
-a:link {
-    /* Content */
-    text-decoration: none;
-}
-
-a {
-    /* Position */
-    text-align: center;
-}
-
-.left {
-    /* Position */
-    transform: translate(0%, 225%);
-
-    /* Content */
-    font-family: newfont;
-}
-
-.right1 {
-    /* Position */
-    transform: translate(0%, 400%);
-
-    /* Content */
-    font-family: newFont;
-}
-
-.right2 {
-    /* Position */
-    transform: translate(0%, 325%);
-
-    /* Content */
-    font-family: newFont;
-}
-
-.rightNumber {
-    /* Position */
-    transform: translate(0%, 325%);
-
-    /* Content */
-    font-family: Arial;
-}
-
-.rating {
-    /* Border */
-    border: 4px solid;
-    border-color: black;
-    border-radius: 10%;
-
-    /* Size */
-    width: 30%;
-    height: 20%;
 
     /* Position */
     display: inline-block;
-    margin-top: 5%;
+    text-align: center;
 
     /* Content */
     font-family: newFont;
     font-size: 12px;
 }
 
-.number {
-
-    /* Content */
-    font-family: Arial;
+button:hover {
+    /* Cursor */
+    cursor: pointer;
 }
 
-h1 {
+select {
     /* Border */
     border: solid;
+    border-radius: 1%;
     border-color: black;
 
     /* Size */
-    width: 70%;
-    padding: 5%;
+    padding: 1%;
 
     /* Position */
-    margin-top: 10%;
-    margin-bottom: 5%;
     display: inline-block;
-    vertical-align: middle;
+    text-align: center;
+    margin-top: 2.5%;
+
+    /* Content */
+    appearance: none;
+    font-family: newFont;
+}
+
+label {
+    /* Position */
+    text-align: center;
 
     /* Content */
     font-family: newFont;
-    font-size: 20px;
-
+    font-size: 24px;
 }
 
 /* ========================================================================== */

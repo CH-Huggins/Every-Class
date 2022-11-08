@@ -70,7 +70,6 @@ function getCourseRatings(course) {
     const sql = 'SELECT * FROM CourseRating WHERE CRN=@CRN';
     const stmt = db.prepare(sql);
     const courseRatings = stmt.all({CRN});
-
     // Returns an array of all ratings
     return courseRatings;
 }
@@ -153,7 +152,7 @@ function getCourseRating(course) {
                             "Professionalism": profes / count,
                             "Easiness": easiness / count,
                             "Interaction": interaction / count,
-                            "Curve Frequency": curveFreq / count}
+                            "CurveFrequency": curveFreq / count}
         // Find the overall average
         return averages;
     }
@@ -184,10 +183,27 @@ function addCourse(CRN, email) {
                 "totalCredits": courseData.credits});
 }
 
+function addRating(data, UUID) {
+    const course = getCourseFromName(data.course);
+    const review = {"CRN": course.CRN,
+                    "UserID": UUID,
+                    "Punctuality": data.Punctuality,
+                    "Professionalism": data.Professionalism,
+                    "Easiness": data.Easiness,
+                    "Interaction": data.Interaction,
+                    "CurveFrequency": data.CurveFrequency};
+
+    const sql = 'INSERT INTO CourseRating VALUES (@CRN, @UserID, @Punctuality, @Professionalism, @Easiness, @Interaction, @CurveFrequency)';
+    const stmt = db.prepare(sql);
+    stmt.run(review);
+
+}
+
 module.exports = {
     getUsersCourses,
     getAllCourses,
     getCourseRating,
     getUsersCourses,
-    addCourse
+    addCourse,
+    addRating
 }

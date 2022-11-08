@@ -91,7 +91,11 @@ app.post("/api/posts", postValidator.postValidator, postController.createPost);
 // Nav Bar
 app.get("/api/home", spaceController.renderHome);
 app.get("/api/courses", courseController.renderCourses);
+// TODO
+app.get("/api/library",);
 app.get("/api/profile", profileController.loadProfile);
+// TODO
+app.get("/api/library",);
 app.post("/api/logOut", userController.logOut);
 
 // Course Pages
@@ -102,6 +106,7 @@ app.get("/api/space/:course", spaceController.renderSpace);
 // TODO
 // Review Page
 app.get("/api/review/:course", courseController.renderCourseReviews);
+app.post("/api/courseRating", courseController.postCourseReview);
 // Add Course Page
 app.get("/api/addCourse", courseController.renderAddCourse);
 app.post("/api/addedCourse", courseController.renderAddedCourse);

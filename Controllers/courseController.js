@@ -27,17 +27,20 @@ function renderCourse(req, res) {
     if (req.session.isLoggedIn){
         const course = req.params.course;
         const courseRating = courseModel.getCourseRating(course);
-
         res.render("course", {"course": course, "courseRating": courseRating});
     } else {
         res.render("log_in");
     }
 }
 
-// Need a view for still
 function renderAddCourse(req, res) {
     if (req.session.isLoggedIn){
-        const allCourses = courseModel.getAllCourses();
+        let allCourses = courseModel.getAllCourses();
+        allCourses = allCourses.sort((a, b) => {
+            if (a.CourseName < b.CourseName){
+                return -1
+            }
+        });
 
         res.render("addCourse", {"allCourses": allCourses});
     } else {
@@ -57,7 +60,24 @@ function renderAddedCourse(req, res) {
 }
 
 function renderCourseReviews(req, res) {
+    if (req.session.isLoggedIn){
+        const course = req.params.course;
 
+        res.render("rating", {"course": course});
+    } else {
+        res.render("log_in");
+    }
+}
+
+function postCourseReview(req, res) {
+    if (req.session.isLoggedIn){
+        const courses = courseModel.getUsersCourses(req.session.user.email);
+        courseModel.addRating(req.body, req.session.user.userID);
+
+        res.render("courses", {"courses": courses});
+    } else {
+        res.render("log_in");
+    }
 }
 
 module.exports = {
@@ -65,5 +85,6 @@ module.exports = {
     renderCourse,
     renderAddCourse,
     renderAddedCourse,
-    renderCourseReviews
+    renderCourseReviews,
+    postCourseReview
 }

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rating</title>
+    <link rel="stylesheet" href="/css/rating.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <script src="/js/nav.js" defer>
+        function logOut() {
+            const logOut = document.getElementById("logout");
+            logOut.onclick
+        }
+    </script>
+</head>
+<body>
+    <div id="nav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="/api/home">Home</a>
+        <a href="/api/courses">Courses</a>
+        <a href="/api/library">Library</a>
+        <a href="/api/messages">Messages</a>
+        <a href="/api/profile">Profile</a>
+        <!-- Log Out needs to call method to end user sessions -->
+        <a id="logout" href="/api/logout">Log Out</a>
+    </div>
+    <span style="font-size:50px;cursor:pointer;color:white;" onclick="openNav()">&#9776;</span>
+    <div class="wrapper">
+        <h1>Leave A Rating:</h1>
+        <form id="addCourse" action="/api/courseRating" method="POST">
+            <input type="hidden" id="course" name="course" value="<%= course %>">
+            <div id="div_1">
+                <label for="Punctuality"><b>Punctuality</b></label>
+                <select name="Punctuality" id="Punctuality">
+                    <option id="1" style="background-color: #58b500b3;">1</option>
+                    <option id="2" style="background-color: #afe00fb7"">2</option>
+                    <option id="3" style="background-color: #dfd517cc;">3</option>
+                    <option id="4" style="background-color: #d2a621bf;">4</option>
+                    <option id="5" style="background-color: #e03411d6;">5</option>
+                </select>
+                <p class="description">
+                    1 - No Attendance Policy
+                </p>
+                <p class="description">
+                    5 - Strict Attendance Policy
+                </p>
+            </div>
+            <div id="div_2">
+                <label for="Professionalism"><b>Professionalism</b></label>
+                <select name="Professionalism" id="Professionalism">
+                    <option id="1" style="background-color: #e03411d6;">1</option>
+                    <option id="2" style="background-color: #d2a621bf;">2</option>
+                    <option id="3" style="background-color: #dfd517cc;">3</option>
+                    <option id="4" style="background-color: #afe00fb7;">4</option>
+                    <option id="5" style="background-color: #58b500b3;">5</option>
+                </select>
+                <p class="description">
+                    1 - Will Not Reply To Emails
+                </p>
+                <p class="description">
+                    5 - Responds Frequently
+                </p>
+            </div>
+            <div id="div_3">
+                <label for="Easiness"><b>Easiness</b></label>
+                <select name="Easiness" id="Easiness">
+                    <option id="1" style="background-color: #e03411d6;">1</option>
+                    <option id="2" style="background-color: #d2a621bf;">2</option>
+                    <option id="3" style="background-color: #dfd517cc;">3</option>
+                    <option id="4" style="background-color: #afe00fb7;">4</option>
+                    <option id="5" style="background-color: #58b500b3;">5</option>
+                </select>
+                <p class="description">
+                    1 - Course Work Is Extremely Rigorous
+                </p>
+                <p class="description">
+                    5 - Light Course Load
+                </p>
+            </div>
+            <div id="div_4">
+                <label for="Interaction"><b>Interaction</b></label>
+                <select name="Interaction" id="Interaction">
+                    <option id="1" style="background-color: #e03411d6;">1</option>
+                    <option id="2" style="background-color: #d2a621bf;">2</option>
+                    <option id="3" style="background-color: #dfd517cc;">3</option>
+                    <option id="4" style="background-color: #afe00fb7;">4</option>
+                    <option id="5" style="background-color: #58b500b3;">5</option>
+                </select>
+                <p class="description">
+                    1 - Lecture Based Course
+                </p>
+                <p class="description">
+                    5 - Asks Questions Frequently
+                </p>
+            </div>
+            <div id="div_5">
+                <label for="CurveFrequency"><b>Curve Frequency</b></label>
+                <select name="CurveFrequency" id="CurveFrequency">
+                    <option id="1" style="background-color: #e03411d6;">1</option>
+                    <option id="2" style="background-color: #d2a621bf;">2</option>
+                    <option id="3" style="background-color: #dfd517cc;">3</option>
+                    <option id="4" style="background-color: #afe00fb7;">4</option>
+                    <option id="5" style="background-color: #58b500b3;">5</option>
+                </select>
+                <p class="description">
+                    1 - No Curve
+                </p>
+                <p class="description">
+                    5 - Large Curves
+                </p>
+            </div>
+            <button type="submit" class="submit" value="Submit">Add Course</button>
+        </form>
+    </div>
+</body>
+</html>

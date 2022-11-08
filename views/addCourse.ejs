@@ -5,18 +5,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Course</title>
+    <link rel="stylesheet" href="/css/addCourse.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <script src="/js/nav.js" defer>
+        function logOut() {
+            const logOut = document.getElementById("logout");
+            logOut.onclick
+        }
+    </script>
 </head>
 <body>
-    <form id="addCourse" action="/api/addedCourse" method="POST">
-        <label for="courses"><b>Courses:</b></label>
-        <select name="CRN" id="CRN">
-            <% for (let i = 0; i < allCourses.length; i++){ %>
-                <option value="<%= allCourses[i].CRN %>">
-                    <%= allCourses[i].CourseName %>
-                </option>
-            <% } %>
-        </select>
-        <button type="submit" class="submit" value="Submit">Add Course</button>
-    </form>
+    <div id="nav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="/api/home">Home</a>
+        <a href="/api/courses">Courses</a>
+        <a href="/api/library">Library</a>
+        <a href="/api/messages">Messages</a>
+        <a href="/api/profile">Profile</a>
+        <!-- Log Out needs to call method to end user sessions -->
+        <a id="logout" href="/api/logout">Log Out</a>
+    </div>
+    <span style="font-size:50px;cursor:pointer;color:white;" onclick="openNav()">&#9776;</span>
+    <div class="wrapper">
+        <h1>Find a course:</h1>
+        <p class="description">(Typing the course should immediately find it)</p>
+        <form id="addCourse" action="/api/addedCourse" method="POST">
+            <label for="courses"><b>Courses:</b></label>
+            <select name="CRN" id="CRN">
+                <% for (let i = 0; i < allCourses.length; i++){ %>
+                    <option value="<%= allCourses[i].CRN %>">
+                        <%= allCourses[i].CourseName %>
+                    </option>
+                <% } %>
+            </select>
+            <button type="submit" class="submit" value="Submit">Add Course</button>
+        </form>
+    </div>
 </body>
 </html>
