@@ -33,8 +33,8 @@
             <p id="noClass"> You have no courses. Try adding some with the + button.</p>
         <% } else { %>
             <% if (!added) { %>
-                <div class="course">
-                    <div class="courseDivs">
+                <div class="course" style="color: red;">
+                    <div class="courseDivs" style="margin-left: calc(40px + 10%);">
                         <p class="details">CRN:</p>
                         <p class="courseDetails">
                             -
@@ -42,7 +42,7 @@
                     </div>
                     <div class="courseDivs">
                         <p class="details">Course:</p>
-                        <p class="courseDetails" style="color: red;">
+                        <p class="courseDetails">
                         Course could not be added, MAX HOURS
                         </p>
                     </div>

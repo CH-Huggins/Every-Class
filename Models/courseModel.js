@@ -228,13 +228,23 @@ function getUsersCourses(email) {
 
 function addCourse(CRN, email) {
     const courseData = getCourseFromCRN(CRN);
+    const courses = getUsersCourses(email);
+    var alreadyAdded = false;
 
-    const sql = 'INSERT INTO TakenCourses VALUES (@semesterID, @email, @CRN, @totalCredits)';
-    const stmt = db.prepare(sql);
-    stmt.run({"semesterID": "F2022",
+    for (let i = 0; i < courses.length; i++){
+        if (courses[i].CRN == CRN){
+            alreadyAdded = true;
+        }
+    }
+
+    if (!alreadyAdded){
+        const sql = 'INSERT INTO TakenCourses VALUES (@semesterID, @email, @CRN, @totalCredits)';
+        const stmt = db.prepare(sql);
+        stmt.run({"semesterID": "F2022",
                 "email": email,
                 "CRN": CRN,
                 "totalCredits": courseData.credits});
+    }
 }
 
 /**
