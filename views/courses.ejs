@@ -32,9 +32,35 @@
         <% if (courses.length == 0) { %>
             <p id="noClass"> You have no courses. Try adding some with the + button.</p>
         <% } else { %>
+            <% if (!added) { %>
+                <div class="course">
+                    <div class="courseDivs">
+                        <p class="details">CRN:</p>
+                        <p class="courseDetails">
+                            -
+                        </p>
+                    </div>
+                    <div class="courseDivs">
+                        <p class="details">Course:</p>
+                        <p class="courseDetails" style="color: red;">
+                        Course could not be added, MAX HOURS
+                        </p>
+                    </div>
+                    <div class="courseDivs">
+                        <p class="details">Credits:</p>
+                        <p class="courseDetails">
+                            -
+                        </p>
+                    </div>
+                </div>
+            <% } %>
             <% for (let i = 0; i < courses.length; i++) { %>
                 <a href="/api/course/<%= courses[i].CourseName %>">
                     <div class="course">
+                        <form id="dropCourse" action="/api/droppedCourse" method="POST">
+                            <input type="hidden" name="CRN" value="<%= courses[i].CRN %>">
+                            <button type="submit" class="submit" value="Submit">-</button>
+                        </form>
                         <div class="courseDivs">
                             <p class="details">CRN:</p>
                             <p class="courseDetails">

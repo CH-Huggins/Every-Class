@@ -82,34 +82,42 @@ app.use(express.static(__dirname + '/public'));
 app.use(express.json({limit: '200kb'}));
 
 // Endpoints (Seperate into alotted sections) DONT FORGET VALIDATORS
-//app.get("/location/:possibleParam", nameValidator, nameController.renderName);
 
 app.post("/api/user", userValidator.registerValidator, userController.createNewUser);
 app.post("/api/login", userValidator.loginValidator, userController.logIn);
 app.post("/api/posts", postValidator.postValidator, postController.createPost);
 
+////////////////////////////////////////////////////////////////////////////////
 // Nav Bar
+////////////////////////////////////////////////////////////////////////////////
+
 app.get("/api/home", spaceController.renderHome);
 app.get("/api/courses", courseController.renderCourses);
 // TODO
 app.get("/api/library",);
-app.get("/api/profile", profileController.loadProfile);
 // TODO
-app.get("/api/library",);
+app.get("/api/messages",);
+app.get("/api/profile", profileController.loadProfile);
 app.post("/api/logOut", userController.logOut);
 
-// Course Pages
-// Course Main Page
+////////////////////////////////////////////////////////////////////////////////
+// Course Space
+////////////////////////////////////////////////////////////////////////////////
+
+// Course Page
 app.get("/api/course/:course", courseController.renderCourse);
+
 // Course Space
 app.get("/api/space/:course", spaceController.renderSpace);
-// TODO
+
 // Review Page
 app.get("/api/review/:course", courseController.renderCourseReviews);
 app.post("/api/courseRating", courseController.postCourseReview);
-// Add Course Page
+
+// Add/Drop Course
 app.get("/api/addCourse", courseController.renderAddCourse);
 app.post("/api/addedCourse", courseController.renderAddedCourse);
+app.post("/api/droppedCourse", courseController.renderDroppedCourse);
 
 // ========================================================================== //
 // ============================ Error Handlers ============================== //

@@ -44,7 +44,7 @@ body {
 .courseDivs {
     /* Size */
     padding: 1%;
-    width: 13%;
+    width: 11%;
 
     /* Position */
     display: inline-block;
@@ -94,19 +94,19 @@ button:hover {
 }
 
 .details {
-    /* Size */
-
-
     /* Position */
     display: block;
 }
 
 .courseDetails {
-    /* Size */
-
-
     /* Position */
     display: block;
+}
+
+.submit {
+    /* Position */
+    float: left;
+    margin-left: 1%;
 }
 
 /* ========================================================================== */

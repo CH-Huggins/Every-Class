@@ -93,6 +93,18 @@ function getCRN(course) {
     return CRN.CRN;
 }
 
+/**
+ * @brief       Gets all course information from the database given a name
+ *
+ * @detailed    Operates on the database to get a course's name, hours, and
+ *              CRN given the name of the course itself. It then returns all
+ *              of this data.
+ *              
+ * @param       course        the course that is being searched for
+ * 
+ * @return      Returns a json body containing a course's information
+**/
+
 function getCourseFromName(course) {
     const sql = 'SELECT * FROM Courses WHERE CourseName=@course';
     const stmt = db.prepare(sql);
@@ -100,6 +112,18 @@ function getCourseFromName(course) {
 
     return courseData;
 }
+
+/**
+ * @brief       Gets all course information from the database given a CRN
+ *
+ * @detailed    Operates on the database to get a course's name, hours, and
+ *              CRN given the CRN of the course itself. It then returns all
+ *              of this data.
+ *              
+ * @param       CRN        the CRN of the course that is being searched for
+ * 
+ * @return      Returns a json body containing a course's information
+**/
 
 function getCourseFromCRN(CRN) {
     const sql = 'SELECT * FROM Courses WHERE CRN=@CRN';
@@ -123,8 +147,9 @@ function getCourseFromCRN(CRN) {
 **/
 
 function getCourseRating(course) {
-    // Should average all ratings for the course
+    // Gets every rating for the course and stores it in an array courses
     const courses = getCourseRatings(course);
+    // Initializes a count and each course base score at 0
     let count = 0;
     let punctuality = 0;
     let profes = 0;
@@ -145,9 +170,11 @@ function getCourseRating(course) {
         count++;
     }
 
+    // If there is not count, return 0 since there are no reviews
     if (count == 0){
         return 0;
     } else {
+        // Initialize a json body with the average of each category
         const averages = {"Punctuality": punctuality / count,
                             "Professionalism": profes / count,
                             "Easiness": easiness / count,
@@ -158,8 +185,21 @@ function getCourseRating(course) {
     }
 }
 
+/**
+ * @brief       Gets the courses taken by a user
+ *
+ * @detailed    Given the email of a user, this function operates on the 
+ *              database and creates an array of CRNs of the courses a user is 
+ *              taking. It then utilizes a loop to iterate through each CRN to 
+ *              get each courses data, and pushes that data into courses. The 
+ *              array courses is then returned
+ *              
+ * @param       email        the email of the user
+ * 
+ * @return      Returns an array of json bodies containing course data
+**/
+
 function getUsersCourses(email) {
-    // YET TO BE TESTED
     const sql = 'SELECT CRN FROM TakenCourses WHERE email=@email';
     const stmt = db.prepare(sql);
     const CRNs = stmt.all({email});
@@ -173,8 +213,22 @@ function getUsersCourses(email) {
     return courses;
 }
 
+/**
+ * @brief       Adds a course to the user's database
+ *
+ * @detailed    This calls a function to get the courses data given the CRN.
+ *              It then inserts this data into the database of TakenCourses
+ *              when it stores who the user is and what course they're taking.
+ *              
+ * @param       CRN         the CRN of the course that is looking to be added
+ * 
+ * @param       email       the email used for associating the user with the
+ *                          course they are taking that is being added
+**/
+
 function addCourse(CRN, email) {
     const courseData = getCourseFromCRN(CRN);
+
     const sql = 'INSERT INTO TakenCourses VALUES (@semesterID, @email, @CRN, @totalCredits)';
     const stmt = db.prepare(sql);
     stmt.run({"semesterID": "F2022",
@@ -183,8 +237,44 @@ function addCourse(CRN, email) {
                 "totalCredits": courseData.credits});
 }
 
+/**
+ * @brief       Gets the hours the user is taking
+ *
+ * @detailed    Given the email of a user, this function operates on the 
+ *              database and requests the number of hours a user is taking
+ *              
+ * @param       email        the email of the user
+ * 
+ * @return      Returns an array of hours the user is taking
+**/
+
+function checkCourseHours(email) {
+    const sql = 'SELECT totalCredits FROM TakenCourses WHERE email=@email';
+    const stmt = db.prepare(sql);
+    const hours = stmt.all({email});
+
+    return hours;
+}
+
+/**
+ * @brief       Adds a rating to the course rating's database
+ *
+ * @detailed    This calls a function to get the courses data given the course
+ *              name. It then creates a json body named review, that provides
+ *              all information necessary to write into the courseRating db.
+ *              It then inserts this json body into the database
+ *              
+ * @param       data        an array of values that we're provided by the user
+ *                          in the rating.ejs file
+ * 
+ * @param       email       the email used for associating the user with the
+ *                          course they are taking that is being added
+**/
+
 function addRating(data, UUID) {
+    // Gets the course data given the course's name
     const course = getCourseFromName(data.course);
+    // Initializes a json body containing all values needed for the database.
     const review = {"CRN": course.CRN,
                     "UserID": UUID,
                     "Punctuality": data.Punctuality,
@@ -193,10 +283,64 @@ function addRating(data, UUID) {
                     "Interaction": data.Interaction,
                     "CurveFrequency": data.CurveFrequency};
 
-    const sql = 'INSERT INTO CourseRating VALUES (@CRN, @UserID, @Punctuality, @Professionalism, @Easiness, @Interaction, @CurveFrequency)';
-    const stmt = db.prepare(sql);
-    stmt.run(review);
+    // Get CRNs of courses the user has rated
+    const CRNs = checkRating(UUID);
+    // Make flag for if a rating has already been made
+    var alreadyRated = false;
 
+    // Check if a rating has already been made, if so, change alreadyRated to 
+    // true
+    for (let i = 0; i < CRNs.length; i++){
+        if (CRNs[i].CRN == course.CRN){
+            alreadyRated = true;
+        }
+    }
+
+    // If not already rated, insert the rating
+    if (!alreadyRated){
+        const sql = 'INSERT INTO CourseRating VALUES (@CRN, @UserID, @Punctuality, @Professionalism, @Easiness, @Interaction, @CurveFrequency)';
+        const stmt = db.prepare(sql);
+        stmt.run(review);
+    }
+}
+
+/**
+ * @brief       Gets all CRNs of courses a user rated
+ *
+ * @detailed    Given the user's id, this finds all CRNs of courses that a user
+ *              has rated, and then returns an array of those CRNs
+ *              
+ * @param       UUID        the user's id number
+ * 
+ * @return      CRNs        an array containing all CRNs of courses a user
+ *                          has rated
+**/
+
+function checkRating(UUID) {
+    const sql = 'SELECT CRN FROM CourseRating WHERE UserID=@UUID';
+    const stmt = db.prepare(sql);
+    const CRNs = stmt.all({UUID});
+
+    return CRNs;
+}
+
+/**
+ * @brief       Deletes a course to the user's database
+ *
+ * @detailed    This operates on the database and deletes the course with the
+ *              given CRN associatated witht he student's email
+ *              
+ * @param       CRN         the CRN of the course that is looking to be dropped
+ * 
+ * @param       email       the email used for associating the user with the
+ *                          course they are taking that is being dropped
+**/
+
+function dropCourse(CRN, email){
+    const sql = 'DELETE FROM TakenCourses WHERE CRN=@CRN AND email=@email';
+    const stmt = db.prepare(sql);
+    stmt.run({"CRN": CRN,
+            "email": email});
 }
 
 module.exports = {
@@ -204,6 +348,9 @@ module.exports = {
     getAllCourses,
     getCourseRating,
     getUsersCourses,
+    getCourseFromCRN,
+    checkCourseHours,
     addCourse,
-    addRating
+    addRating,
+    dropCourse
 }
