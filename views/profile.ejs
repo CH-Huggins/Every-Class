@@ -5,8 +5,98 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
+    <link rel="stylesheet" href="/css/profile.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <script src="/js/nav.js" defer>
+        function logOut() {
+            const logOut = document.getElementById("logout");
+            logOut.onclick
+        }
+    </script>
 </head>
 <body>
-    
+    <div id="nav">
+        <!-- TODO: Create app.gets for each of these views -->
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="/api/home">Home</a>
+        <a href="/api/courses">Courses</a>
+        <a href="/library">Library</a>
+        <a href="/messages">Messages</a>
+        <a href="/api/profile">Profile</a>
+        <!-- Log Out needs to call method to end user sessions -->
+        <a id="logout" href="/api/logout">Log Out</a>
+    </div>
+    <span style="font-size:50px;cursor:pointer;color:white;" onclick="openNav()">&#9776;</span>
+
+    <div class="wrapper">
+        <% if (user.img) { %>
+            <img src="<%= user.img %>" alt="User Image">
+        <% } else { %>
+            <img src="../media/images/default.jpeg" alt="User Image">
+        <% } %>
+        <button type="button" class="edit">
+            <span>Edit</span>
+        </button>
+        <div class="data">
+            First Name:
+            <% if (user.firstName) {%>
+                <p>
+                    <%= user.firstName %>
+                </p>
+            <% } else { %>
+                <p>N/A</p>
+            <% } %>
+        </div>
+        <div class="data">
+            Last Name:
+            <% if (user.lastName) {%>
+                <p>
+                    <%= user.lastName %>
+                </p>
+            <% } else { %>
+                <p>N/A</p>
+            <% } %>
+        </div>
+        <div class="data">
+            GPA:
+            <% if (user.gpa) {%>
+                <p id="numbers">
+                    <%= user.gpa %>
+                </p>
+            <% } else { %>
+                <p>N/A</p>
+            <% } %>
+        </div>
+        <div class="data">
+            Major:
+            <% if (user.major) {%>
+                <p>
+                    <%= user.major %>
+                </p>
+            <% } else { %>
+                <p>N/A</p>
+            <% } %>
+        </div>
+        <div class="postWrapper">
+            <% if (posts.length > 0) {%>
+                <% for(let i = 0; i < posts.length; i++){ %>
+                    <div class="post">
+                        <p id="numbers">
+                            Posted at
+                            <%= posts[i].date %>
+                            <%= posts[i].time %>
+                            in
+                            <%= posts[i].location %>
+                        </p>
+                        <p>
+                            <%= posts[i].content %>
+                        </p>
+                    </div>
+                <% } %>
+            <% } else { %>
+                <p>You currently have no posts!</p>
+            <% } %>
+        </div>
+    </div>
 </body>
 </html>

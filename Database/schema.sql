@@ -9,14 +9,6 @@ validated boolean default (false),
 primary key (userID)
 );
 
-CREATE TABLE IF NOT EXISTS Posts (
-postID TEXT PRIMARY KEY,
-author TEXT NOT NULL,
-postText TEXT NOT NULL,
-likes INTEGER NOT NULL DEFAULT 0 CHECK (likes > 0),
-FOREIGN KEY(author) REFERENCES users(userID)
-);
-
 
 CREATE TABLE IF NOT EXISTS  departments(
 Name varchar(30),
@@ -72,6 +64,34 @@ CurveFrequency DECIMAL(3,2) CHECK (CurveFrequency <= 5),
 FOREIGN KEY (CRN) REFERENCES Courses (CRN) on delete cascade on update cascade,
 FOREIGN KEY (UserID)  REFERENCES users (UserID) on delete cascade on update cascade,
 PRIMARY KEY (CRN, userID));
+
+CREATE TABLE IF NOT EXISTS Posts (
+postID INTEGER PRIMARY KEY AUTOINCREMENT,
+spaceID varchar(80),
+authorID VARCHAR(20),
+postText TEXT,
+time DATETIME(3) NOT NULL,
+FOREIGN KEY(authorID) REFERENCES users(userID)
+);
+
+CREATE TABLE IF NOT EXISTS conversation(
+conversationID INTEGER PRIMARY KEY AUTOINCREMENT,
+first_userID   VARCHAR(20) NOT NULL,
+second_userID VARCHAR(20) NOT NULL,
+time DATETIME(3) NOT NULL,
+FOREIGN KEY (first_userID) REFERENCES Users(userID),
+FOREIGN KEY (second_userID) REFERENCES Users(userID)
+);
+
+CREATE TABLE IF NOT EXISTS conversationReplies(
+conversationReplies INTEGER PRIMARY KEY AUTOINCREMENT ,
+conversationID INTEGER NOT NULL,
+message TEXT,
+time DATETIME(3) NOT NULL,
+userID VARCHAR(20) NOT NULL,
+FOREIGN KEY (userID) REFERENCES Users(UserID),
+FOREIGN KEY (conversationID) REFERENCES conversation(conversationID)
+);
 
 -- DEPARMENTS
 -- Insert into deparments
@@ -2566,3 +2586,13 @@ INSERT INTO departmentCourses VALUES ('14399','THEATRE ARTS');
 INSERT INTO departmentCourses VALUES ('14850','THEATRE ARTS');
 INSERT INTO departmentCourses VALUES ('14410','THEATRE ARTS');
 INSERT INTO departmentCourses VALUES ('14407','THEATRE ARTS');
+
+INSERT INTO Semesters VALUES ('F2022');
+
+CREATE TRIGGER new_bid_no
+BEFORE INSERT ON Posts
+WHEN NEW.SpaceID = (SELECT CourseName FROM Courses WHERE CourseName = NEW.SpaceID)
+BEGIN
+    INSERT INTO Posts(spaceID,authorID,postText,time) VALUES ( NEW.SpaceID, NEW.AuthorID, NEW.PostText, NEW.Time);
+END;
+

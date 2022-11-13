@@ -102,3 +102,8 @@ Valitor maker and any other validators
 
 views:
 All ejs files
+
+Database Needs:
+CourseRatings table (needs course name to be a column)
+User's first name, last name (currently is a student full name)
+User's profile image

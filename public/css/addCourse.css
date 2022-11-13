@@ -3,86 +3,99 @@
 /* ========================================================================== */
 
 body {
-    background-image: url("../media/images/class.png");
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-image: url("../media/images/EveryClass.png");
 }
 
-.container {
-    width: fit-content;
+.wrapper {
+    /* Border */
+    border: solid;
+    border-color: black;
+    background-color: white;
+
+    /* Size */
+    height: 90%;
+    width: 90%;
+
+    /* Position */
+    text-align: center;
     position: fixed;
     top: 50%;
     left: 50%;
-    margin: 10px;
-    padding: 10px;
-    /* bring your own prefixes */
     transform: translate(-50%, -50%);
-    border-width: thick;
-    border-radius: 10px;
-    border-color: black;
-    border: 10px solid;
-    background-color: white;
-    width: 50%;
-    height: 75%;
+    overflow-y: scroll;
 }
 
 /* ========================================================================== */
 /* --------------------------- Non-Container -------------------------------- */
 /* ========================================================================== */
 
-h2 {
-    width:  200px;
-    margin: auto;
-    padding-top: 20px;
-    padding-bottom: 20px;
+h1 {
+    /* Position */
+    text-align: center;
+    margin-top: 17.5%;
+
+    /* Content */
     font-family: newFont;
-    font-size: 70px;
 }
 
-label {
+.description {
+    /* Position */
     text-align: center;
-    display: inline-block;
-    font-family: newFont;
-    font-size: 40px;
-    width: auto;
-    padding: 20px;
-}
 
-input {
-    text-align: center;
-    display: inline-block;
+    /* Content */
     font-family: newFont;
-    font-size: 30px;
-    width: 500px;
-    margin-left: 13%;
+    font-size: 12px;
+    color: rgb(85, 85, 85);
 }
 
 button {
-    font-family: newFont;
-    background-color: #38ba84; /* Green */
-    border: 2px solid;
-    border-color: #000000;
-    color: rgb(0, 0, 0);
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    width: 250px;
-    font-size: 30px;
-    margin: 10px;
-    margin-left: 20px;
-    margin-top: 13%;
-    transition: .25s ease-in-out;
-}
+    /* Border */
+    border: solid;
+    border-radius: 1%;
 
-.backbtn {
-    margin-left: 12%;
+    /* Size */
+    padding: 1%;
+
+    /* Position */
+    display: inline-block;
+    text-align: center;
+
+    /* Content */
+    font-family: newFont;
+    font-size: 12px;
 }
 
 button:hover {
-    transition: .25s ease-in-out;
+    /* Cursor */
     cursor: pointer;
-    padding: 5%;
+}
+
+select {
+    /* Border */
+    border: solid;
+    border-radius: 1%;
+    border-color: black;
+
+    /* Size */
+    padding: 1%;
+
+    /* Position */
+    display: inline-block;
+    text-align: center;
+    margin-top: 2.5%;
+
+    /* Content */
+    appearance: none;
+    font-family: newFont;
+}
+
+label {
+    /* Position */
+    text-align: center;
+
+    /* Content */
+    font-family: newFont;
+    font-size: 24px;
 }
 
 /* ========================================================================== */

@@ -4,72 +4,165 @@
 
 body {
     background-image: url("../media/images/EveryClass.png");
-    /*linear-gradient(180deg,  #c31d1d, #000000);*/
 }
 
-#nav {
-    height: 100%;
-    width: 0;
+.main {
+    /* Border */
+    border: solid;
+    border-color: black;
+    background-color: white;
+
+    /* Size */
+    height: 95%;
+    width: 90%;
+
+    /* Position */
+    text-align: center;
     position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #111;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-#nav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-    transition: 0.3s;
-    font-family: newfont;
-}
+.posts {
+    /* Border */
+    border: 2px solid;
 
-#nav a:hover {
-    color: #f1f1f1;
-}
+    /* Size */
+    width: 98%;
+    height: 65%;
 
-#nav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-    transition: .25s ease-in-out;
-}
-
-#main {
-    font-family: newFont;
+    /* Position */
+    transform: translate(.75%, 0);
+    overflow-y: scroll;
 }
 
 .post {
+    /* Border */
     border: solid;
-    width: 100%;
-    height: 10%;
     border-color: black;
     background-color: white;
+
+    /* Size */
+    width: 98%;
+    height: fit-content;
+
+    /* Position */
+    text-align: center;
+    margin: 2px;
+    transform: translate(.5%, 0);
+
+    /* Content */
+    overflow-y: scroll;
+    font-family: Arial;
+    font-size: 12px;
 }
 
-h1 {
-    display: inline-block;
-    font-size: 30px;
-    font-family: newFont;
-    text-align: center;
-    width: fit-content;
-    margin-left: 45%;
+#user {
+    /* Size */
+
+    /* Position */
+    display: block;
+    transform: translate(-35%, 0);
+}
+
+#dateTime {
+    /* Position */
+    display: block;
+    transform: translate(-37.75%, 0);
+}
+
+.writePost {
+        /* Border */
+        border: 2px solid;
+        border-color: black;
+        background-color: white;
+    
+        /* Size */
+        width: 98%;
+        height: 100px;
+    
+        /* Position */
+        text-align: center;
+        margin: 2px;
+        transform: translate(.5%, 0);
+    
+        /* Content */
+        overflow-y: scroll;
+        font-family: Arial;
+        font-size: 12px;
 }
 
 /* ========================================================================== */
 /* --------------------------- Non-Container -------------------------------- */
 /* ========================================================================== */
 
-#logout {
-    margin-top: 80%;
+h1 {
+    /* Border */
+    border: solid;
+    border-color: black;
+    border-radius: 5%;
+    background-color: white;
+
+    /* Size */
+    width: fit-content;
+    padding: 1%;
+    margin: 2%;
+
+    /* Position */
+    display: inline-block;
+    text-align: center;
+
+    /* Content */
+    font-size: 30px;
+    font-family: Arial;
+}
+
+img {
+    /* Border */
+    border-radius: 60%;
+
+    /* Size */
+    height: 5%;
+    width: 5%;
+
+    /* Position */
+    float: left;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+textarea {
+    /* Background */
+    background-color: white;
+
+    /* Size */
+    width: 100%;
+    height: 100%;
+
+    /* Content */
+    font-size: 12px;
+}
+
+button {
+    /* Border */
+    border: 2px solid;
+    border-color: black;
+
+    /* Size */
+    width: 5%;
+    height: 5%;
+
+    /* Position */
+    position: absolute;
+    transform: translate(870%, -120%);
+
+    /* Content */
+    font-family: newFont;
+}
+
+button:hover {
+    cursor: pointer;
 }
 
 .name {
@@ -79,6 +172,7 @@ h1 {
 .time {
     display: inline;
     font-family: Arial, Helvetica, sans-serif;
+    margin-left: 5%;
 }
 
 /* ========================================================================== */
