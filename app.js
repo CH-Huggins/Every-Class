@@ -70,6 +70,7 @@ const postValidator = require("./Validators/postValidator");
 // Controllers
 const userController = require("./Controllers/userController");
 const postController = require("./Controllers/postController");
+const libraryController = require("./Controllers/libraryController");
 
 // Nav Bar Controllers
 const spaceController = require("./Controllers/spaceController");
@@ -86,12 +87,14 @@ app.use(express.json({limit: '200kb'}));
 app.post("/api/user", userValidator.registerValidator, userController.createNewUser);
 app.post("/api/login", userValidator.loginValidator, userController.logIn);
 app.post("/api/posts", postValidator.postValidator, postController.createPost);
+app.post("/api/library/checkIn", libraryController.checkIntoRoom);
+app.post("/api/library/checkOut", libraryController.checkOutManual);
 
 // Nav Bar
 
 app.get("/api/home", spaceController.renderHome);
 app.get("/api/profile", profileController.loadProfile);
-app.post("/api/logOut", userController.logOut);
+app.get("/api/logOut", userController.logOut);
 
 // ========================================================================== //
 // ============================ Error Handlers ============================== //
