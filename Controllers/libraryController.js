@@ -5,6 +5,9 @@ const schedule = require("node-schedule");
 
 
 
+//needs email set up, and the timestamp parsed
+//need to see what the timestamp will look like
+
 function checkIntoRoom(req, res) {
 
     if (!req.session.isLoggedIn) {
