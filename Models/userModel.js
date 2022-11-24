@@ -27,20 +27,14 @@ async function addUser(email, password) {
         console.log("error", error);
         return false;
     }
-
-    const sql2 =
 }
 
-async function deleteUser() {
-
-}
 
 function getUserbyEmail(email) {
     const sql = `SELECT * 
-                FROM Users
-                JOIN Students ON users.userID=students.userID
-                WHERE users.email=@email;
-                `
+                FROM Users 
+                WHERE email=@email
+                `;
     const stmt = db.prepare(sql);
     return stmt.get({"email": email});
 }

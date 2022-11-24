@@ -4,10 +4,8 @@ const userModel = require("../Models/userModel");
 const argon2 = require("argon2");
 
 async function createNewUser (req, res) {
-    console.log(req.body);
     const {email, pswd} = req.body;
 
-    console.log(email, pswd);
     const createUser = await userModel.addUser(email, pswd);
 
     if (!createUser) {

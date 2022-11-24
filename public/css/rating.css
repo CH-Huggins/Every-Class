@@ -1,0 +1,148 @@
+/* ========================================================================== */
+/* ---------------------------- Containers ---------------------------------- */
+/* ========================================================================== */
+
+body {
+    background-image: url("../media/images/EveryClass.png");
+}
+
+.wrapper {
+    /* Border */
+    border: solid;
+    border-color: black;
+    background-color: white;
+
+    /* Size */
+    height: 90%;
+    width: 90%;
+
+    /* Position */
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    /* Content */
+    font-family: newFont;
+}
+
+/* ========================================================================== */
+/* --------------------------- Non-Container -------------------------------- */
+/* ========================================================================== */
+
+.description {
+    /* Content */
+    font-size: 10px;
+    font-family: Arial;
+}
+
+h1 {
+    /* Position */
+    margin-top: 3%;
+}
+
+#div_1 {
+    /* Size */
+    height: 0%;
+    width: 40%;
+
+    /* Position */
+    display: inline-block;
+    margin-top: 5%;
+}
+
+#div_2 {
+    /* Size */
+    height: 20%;
+    width: 40%;
+
+    /* Position */
+    display: inline-block;
+}
+
+#div_3 {
+    /* Size */
+    height: 20%;
+    width: 40%;
+
+    /* Position */
+    display: inline-block;
+    margin-top: 5%;
+}
+
+#div_4 {
+    /* Size */
+    height: 20%;
+    width: 40%;
+
+    /* Position */
+    display: inline-block;
+}
+
+#div_5 {
+    /* Size */
+    height: 20%;
+    width: 100%;
+
+    /* Position */
+    display: inline-block;
+    margin-top: 5%;
+}
+
+button {
+    /* Size */
+    padding: 1%;
+
+    /* Border */
+    border: solid;
+    border-color: black;
+    border-radius: 1%;
+
+    /* Position */
+    display: inline-block;
+    text-align: center;
+    margin-top: 4%;
+
+    /* Content */
+    font-family: newFont;
+}
+
+button:hover {
+    /* Cursor */
+    cursor: pointer;
+}
+
+select {
+    /* Border */
+    border: solid;
+    border-color: black;
+    border-radius: 5%;
+
+    /* Size */
+    width: 50px;
+    height: 28px;
+    padding: 5px;
+
+    /* Positin */
+    margin-left: 10px;
+
+    /* Content */
+    appearance: none;
+    font-size: 12px;
+    text-align-last: center;
+}
+
+select option:first-child{
+    color: green;
+}
+
+/* ========================================================================== */
+/* ------------------------------- Fonts ------------------------------------ */
+/* ========================================================================== */
+
+@font-face {
+    /* https://www.dafont.com/fort-quinsy.font */
+    font-family: newFont;
+    src: url("../media/fonts/Cocogoose.ttf") format("opentype");
+}

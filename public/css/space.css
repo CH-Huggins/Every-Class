@@ -17,6 +17,7 @@ body {
     width: 90%;
 
     /* Position */
+    text-align: center;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -68,7 +69,7 @@ body {
 #dateTime {
     /* Position */
     display: block;
-    transform: translate(-40%, 0);
+    transform: translate(-37.75%, 0);
 }
 
 .writePost {
@@ -110,12 +111,11 @@ h1 {
 
     /* Position */
     display: inline-block;
-    margin-left: 40%;
     text-align: center;
 
     /* Content */
     font-size: 30px;
-    font-family: newFont;
+    font-family: Arial;
 }
 
 img {
@@ -155,10 +155,14 @@ button {
 
     /* Position */
     position: absolute;
-    transform: translate(1875%, -110%);
+    transform: translate(870%, -120%);
 
     /* Content */
     font-family: newFont;
+}
+
+button:hover {
+    cursor: pointer;
 }
 
 .name {
@@ -168,6 +172,7 @@ button {
 .time {
     display: inline;
     font-family: Arial, Helvetica, sans-serif;
+    margin-left: 5%;
 }
 
 /* ========================================================================== */

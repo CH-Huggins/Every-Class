@@ -1,0 +1,109 @@
+/* ========================================================================== */
+/* ---------------------------- Containers ---------------------------------- */
+/* ========================================================================== */
+
+body {
+    background-image: url("../media/images/EveryClass.png");
+}
+
+.wrapper {
+    /* Border */
+    border: solid;
+    border-color: black;
+    background-color: white;
+
+    /* Size */
+    height: 90%;
+    width: 90%;
+
+    /* Position */
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow-y: scroll;
+}
+
+/* ========================================================================== */
+/* --------------------------- Non-Container -------------------------------- */
+/* ========================================================================== */
+
+h1 {
+    /* Position */
+    text-align: center;
+    margin-top: 17.5%;
+
+    /* Content */
+    font-family: newFont;
+}
+
+.description {
+    /* Position */
+    text-align: center;
+
+    /* Content */
+    font-family: newFont;
+    font-size: 12px;
+    color: rgb(85, 85, 85);
+}
+
+button {
+    /* Border */
+    border: solid;
+    border-radius: 1%;
+
+    /* Size */
+    padding: 1%;
+
+    /* Position */
+    display: inline-block;
+    text-align: center;
+
+    /* Content */
+    font-family: newFont;
+    font-size: 12px;
+}
+
+button:hover {
+    /* Cursor */
+    cursor: pointer;
+}
+
+select {
+    /* Border */
+    border: solid;
+    border-radius: 1%;
+    border-color: black;
+
+    /* Size */
+    padding: 1%;
+
+    /* Position */
+    display: inline-block;
+    text-align: center;
+    margin-top: 2.5%;
+
+    /* Content */
+    appearance: none;
+    font-family: newFont;
+}
+
+label {
+    /* Position */
+    text-align: center;
+
+    /* Content */
+    font-family: newFont;
+    font-size: 24px;
+}
+
+/* ========================================================================== */
+/* ------------------------------- Fonts ------------------------------------ */
+/* ========================================================================== */
+
+@font-face {
+    /* https://www.dafont.com/fort-quinsy.font */
+    font-family: newFont;
+    src: url("../media/fonts/Cocogoose.ttf") format("opentype");
+}

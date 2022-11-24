@@ -1,0 +1,120 @@
+/* ========================================================================== */
+/* ---------------------------- Containers ---------------------------------- */
+/* ========================================================================== */
+
+body {
+    background-image: url("../media/images/EveryClass.png");
+}
+
+.wrapper {
+    /* Border */
+    border: solid;
+    border-color: black;
+    background-color: white;
+
+    /* Size */
+    height: 90%;
+    width: 90%;
+
+    /* Position */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow-y: scroll;
+}
+
+.course {
+    /* Border */
+    border: solid;
+    border-color: black;
+    background-color: white;
+
+    /* Size */
+    height: 25%;
+
+    /* Position */
+    display: block;
+
+    /* Content */
+    font-style: none;
+    color: black;
+}
+
+.courseDivs {
+    /* Size */
+    padding: 1%;
+    width: 11%;
+
+    /* Position */
+    display: inline-block;
+    text-align: center;
+    margin-left: 8%;
+    margin-right: 8%;
+}
+
+/* ========================================================================== */
+/* --------------------------- Non-Container -------------------------------- */
+/* ========================================================================== */
+
+#noClass {
+    /* Position */
+    text-align: center;
+    transform: translate(0, 650%);
+
+    /* Content */
+    font-family: newFont;
+    font-size: 30px;
+}
+
+button {
+    /* Border */
+    border: solid;
+    border-radius: 5%;
+    border-color: black;
+    background-color: gray;
+
+    /* Size */
+    width: 40px;
+    height: 40px;
+
+    /* Position */
+    float: right;
+    margin-right: 1%;
+    margin-top: 1%;
+
+    /* Content */
+    font-family: newFont;
+    font-size: 30px;
+}
+
+button:hover {
+    /* Cursor */
+    cursor: pointer;
+}
+
+.details {
+    /* Position */
+    display: block;
+}
+
+.courseDetails {
+    /* Position */
+    display: block;
+}
+
+.submit {
+    /* Position */
+    float: left;
+    margin-left: 1%;
+}
+
+/* ========================================================================== */
+/* ------------------------------- Fonts ------------------------------------ */
+/* ========================================================================== */
+
+@font-face {
+    /* https://www.dafont.com/fort-quinsy.font */
+    font-family: newFont;
+    src: url("../media/fonts/Cocogoose.ttf") format("opentype");
+}
