@@ -66,7 +66,7 @@ FOREIGN KEY (UserID)  REFERENCES users (UserID) on delete cascade on update casc
 PRIMARY KEY (CRN, userID));
 
 CREATE TABLE IF NOT EXISTS Posts (
-postID INTEGER PRIMARY KEY AUTOINCREMENT,
+postID TEXT NOT NULL,
 spaceID varchar(80),
 authorID VARCHAR(20),
 postText TEXT,
@@ -75,7 +75,7 @@ FOREIGN KEY(authorID) REFERENCES users(userID)
 );
 
 CREATE TABLE IF NOT EXISTS conversation(
-conversationID INTEGER PRIMARY KEY AUTOINCREMENT,
+conversationID TEXT NOT NULL,
 first_userID   VARCHAR(20) NOT NULL,
 second_userID VARCHAR(20) NOT NULL,
 time DATETIME(3) NOT NULL,
@@ -84,8 +84,8 @@ FOREIGN KEY (second_userID) REFERENCES Users(userID)
 );
 
 CREATE TABLE IF NOT EXISTS conversationReplies(
-conversationReplies INTEGER PRIMARY KEY AUTOINCREMENT ,
-conversationID INTEGER NOT NULL,
+conversationReplies TEXT NOT NULL ,
+conversationID TEXT NOT NULL,
 message TEXT,
 time DATETIME(3) NOT NULL,
 userID VARCHAR(20) NOT NULL,
