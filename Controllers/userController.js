@@ -11,10 +11,11 @@ async function createNewUser (req, res) {
     const createUser = await userModel.addUser(email, pswd);
 
     if (!createUser) {
-        return res.render("sign_up");
+        return res.render("log_in");
     }
-
-    res.sendStatus(201);
+    else {
+        return res.redirect("http://localhost:8080/")
+    }
 }
 
 async function logIn (req, res) {
@@ -57,6 +58,7 @@ async function logIn (req, res) {
     });
 }
 
+
 function logOut(req, res) {
     if (req.session) {
         req.session.destroy( (error) => {
@@ -64,7 +66,6 @@ function logOut(req, res) {
                 //deal with error
                 return res.redirect("http://localhost:8080/");
             } else {
-                req.session.isLoggedIn = false;
                 req.session = null;
                 return res.redirect("http://localhost:8080/");
             }

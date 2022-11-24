@@ -7,6 +7,17 @@ validated boolean default (false),
 primary key (userID)
 );
 
+CREATE TABLE IF NOT EXISTS Library(
+    userID     TEXT NOT NULL,
+    roomNumber INT  UNIQUE NOT NULL,
+    occupied   INT  CHECK(occupied=0 OR occupied=1),
+    timeIn     TEXT NOT NULL,
+    timeOut    TEXT NOT NULL,
+    FOREIGN KEY(userID) REFERENCES users(userID),
+    PRIMARY KEY(userID)
+);
+
+
 CREATE TABLE IF NOT EXISTS Posts (
 postID TEXT PRIMARY KEY,
 author TEXT NOT NULL,
