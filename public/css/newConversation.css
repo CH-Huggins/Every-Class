@@ -17,6 +17,7 @@ body {
     width: 90%;
 
     /* Position */
+    text-align: center;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -24,69 +25,44 @@ body {
     overflow-y: scroll;
 }
 
-.course {
-    /* Border */
-    border: solid;
-    border-color: black;
-    background-color: white;
-
-    /* Size */
-    max-height: 25%;
-    max-height: fit-content;
-
-    /* Position */
-    display: block;
-
-    /* Content */
-    font-style: none;
-    color: black;
-}
-
-.courseDivs {
-    /* Size */
-    padding: 1%;
-    width: 11%;
-
-    /* Position */
-    display: inline-block;
-    text-align: center;
-    margin-left: 8%;
-    margin-right: 8%;
-}
-
 /* ========================================================================== */
 /* --------------------------- Non-Container -------------------------------- */
 /* ========================================================================== */
 
-#noClass {
+h1 {
     /* Position */
     text-align: center;
-    transform: translate(0, 650%);
+    margin-top: 17.5%;
 
     /* Content */
     font-family: newFont;
-    font-size: 30px;
+}
+
+.description {
+    /* Position */
+    text-align: center;
+
+    /* Content */
+    font-family: newFont;
+    font-size: 12px;
+    color: rgb(85, 85, 85);
 }
 
 button {
     /* Border */
     border: solid;
-    border-radius: 5%;
-    border-color: black;
-    background-color: gray;
+    border-radius: 1%;
 
     /* Size */
-    width: 40px;
-    height: 40px;
+    padding: 1%;
 
     /* Position */
-    float: right;
-    margin-right: 1%;
-    margin-top: 1%;
+    display: inline-block;
+    text-align: center;
 
     /* Content */
     font-family: newFont;
-    font-size: 30px;
+    font-size: 12px;
 }
 
 button:hover {
@@ -94,20 +70,33 @@ button:hover {
     cursor: pointer;
 }
 
-.details {
+select {
+    /* Border */
+    border: solid;
+    border-radius: 1%;
+    border-color: black;
+
+    /* Size */
+    padding: 1%;
+    width: 75%;
+
     /* Position */
-    display: block;
+    display: inline-block;
+    text-align: center;
+    margin-top: 2.5%;
+
+    /* Content */
+    appearance: none;
+    font-family: newFont;
 }
 
-.courseDetails {
+label {
     /* Position */
-    display: block;
-}
+    text-align: center;
 
-.submit {
-    /* Position */
-    float: left;
-    margin-left: 1%;
+    /* Content */
+    font-family: newFont;
+    font-size: 24px;
 }
 
 /* ========================================================================== */

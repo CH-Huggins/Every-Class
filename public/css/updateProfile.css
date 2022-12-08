@@ -3,7 +3,10 @@
 /* ========================================================================== */
 
 body {
+    /* Background */
     background-image: url("../media/images/EveryClass.png");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .wrapper {
@@ -21,93 +24,87 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    overflow-y: scroll;
-}
-
-.course {
-    /* Border */
-    border: solid;
-    border-color: black;
-    background-color: white;
-
-    /* Size */
-    max-height: 25%;
-    max-height: fit-content;
-
-    /* Position */
-    display: block;
 
     /* Content */
-    font-style: none;
-    color: black;
-}
-
-.courseDivs {
-    /* Size */
-    padding: 1%;
-    width: 11%;
-
-    /* Position */
-    display: inline-block;
     text-align: center;
-    margin-left: 8%;
-    margin-right: 8%;
 }
 
 /* ========================================================================== */
 /* --------------------------- Non-Container -------------------------------- */
 /* ========================================================================== */
 
-#noClass {
+h1 {
+    /* Size */
+    width:  40%;
+    padding-top: 2.5%;
+    padding-bottom: 2.5%;
+
     /* Position */
     text-align: center;
-    transform: translate(0, 650%);
+    margin: auto;
+    
+    /* Content */
+    font-family: newFont;
+    font-size: 40px;
+}
+
+label {
+    /* Size */
+    width: 35%;
+    padding: 2.5%;
+
+    /* Position */
+    text-align: center;
+    display: inline;
+    margin-left: 10%;
+    margin-top: 5%;
 
     /* Content */
     font-family: newFont;
+    font-size: 40px;
+}
+
+input {
+    /* Border */
+    border-color: black;
+    border: 5px solid;
+
+    /* Size */
+    width: 35%;
+
+    /* Position */
+    text-align: center;
+    display: inline;
+    margin-left: 12.5%;
+    margin-right: 10%;
+    margin-bottom: 5%;
+
+    /* Content */
+    color: black;
     font-size: 30px;
 }
 
 button {
     /* Border */
-    border: solid;
-    border-radius: 5%;
+    border: 2px solid;
     border-color: black;
-    background-color: gray;
 
     /* Size */
-    width: 40px;
-    height: 40px;
+    width: 10%;
+    height: 10%;
+    padding: 2%;
 
     /* Position */
-    float: right;
-    margin-right: 1%;
-    margin-top: 1%;
+    text-align: center;
+    display: inline;
 
     /* Content */
     font-family: newFont;
-    font-size: 30px;
+    font-size: 20px;
 }
 
 button:hover {
-    /* Cursor */
     cursor: pointer;
-}
-
-.details {
-    /* Position */
-    display: block;
-}
-
-.courseDetails {
-    /* Position */
-    display: block;
-}
-
-.submit {
-    /* Position */
-    float: left;
-    margin-left: 1%;
 }
 
 /* ========================================================================== */

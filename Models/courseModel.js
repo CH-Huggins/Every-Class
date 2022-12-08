@@ -12,23 +12,6 @@
 
 const db = require("./db");
 
-/**
- * @brief       Gets all courses of a user
- *
- * @detailed    Operates on the database to get the courses currently being
- *              taken by a user given their email, and then returning an array.
- *              If there are no classes, the array should be returned empty.
- *              
- * @param       email        the email of a user
- * 
- * @return      Returns the courses currently being taken by a user
-**/
-
-function getUsersCourses(email) {
-    const usersCourses = [];
-
-    return usersCourses;
-}
 
 /**
  * @brief       Gets all courses offered by the university

@@ -22,92 +22,130 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     overflow-y: scroll;
+    overflow-x: hidden;
+
+    /* Content */
+    text-align: center;
+    font-family: newFont;
 }
 
-.course {
+.writeMessage {
     /* Border */
-    border: solid;
+    border: 2px solid;
     border-color: black;
     background-color: white;
 
     /* Size */
-    max-height: 25%;
-    max-height: fit-content;
+    width: 98%;
+    height: 100px;
 
     /* Position */
-    display: block;
+    text-align: center;
+    margin: 2px;
+    transform: translate(.5%, 0);
 
     /* Content */
-    font-style: none;
-    color: black;
+    overflow-y: scroll;
+    font-family: Arial;
+    font-size: 12px;
 }
 
-.courseDivs {
+.sender {
+    /* Border */
+    border: 4px solid;
+    border-radius: 5px;
+    border-color: black;
+
     /* Size */
-    padding: 1%;
-    width: 11%;
+    width: 45%;
+    padding-left: 2%;
+    padding-right: 2%;
 
     /* Position */
-    display: inline-block;
-    text-align: center;
-    margin-left: 8%;
-    margin-right: 8%;
+    text-align: right;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    align-self: right;
+    transform: translateX(90%);
+
+    /* Content */
+    background-color: #ca1a1a;
+    font-family: Arial;
+    color: white;
+}
+
+.receiver {
+    /* Border */
+    border: 4px solid;
+    border-radius: 5px;
+    border-color: black;
+
+    /* Size */
+    width: 45%;
+    padding-left: 2%;
+    padding-right: 2%;
+
+    /* Position */
+    text-align: left;
+    margin-left: 5%;
+    margin-top: 2%;
+
+    /* Content */
+    background-color: #685252;
+    font-family: Arial;
+    color: rgb(255, 255, 255);
 }
 
 /* ========================================================================== */
 /* --------------------------- Non-Container -------------------------------- */
 /* ========================================================================== */
 
-#noClass {
-    /* Position */
-    text-align: center;
-    transform: translate(0, 650%);
+textarea {
+    /* Background */
+    background-color: white;
+
+    /* Size */
+    width: 100%;
+    height: 100%;
 
     /* Content */
-    font-family: newFont;
-    font-size: 30px;
+    font-size: 12px;
 }
 
 button {
     /* Border */
-    border: solid;
-    border-radius: 5%;
+    border: 2px solid;
     border-color: black;
-    background-color: gray;
 
     /* Size */
-    width: 40px;
-    height: 40px;
+    width: 5%;
+    height: 5%;
 
     /* Position */
-    float: right;
-    margin-right: 1%;
-    margin-top: 1%;
+    position: absolute;
+    transform: translate(870%, -120%);
 
     /* Content */
     font-family: newFont;
-    font-size: 30px;
 }
 
 button:hover {
-    /* Cursor */
     cursor: pointer;
 }
 
-.details {
+#user {
+
     /* Position */
     display: block;
+
+    /* Content */
+    text-decoration: underline;
 }
 
-.courseDetails {
+#content {
+
     /* Position */
     display: block;
-}
-
-.submit {
-    /* Position */
-    float: left;
-    margin-left: 1%;
 }
 
 /* ========================================================================== */

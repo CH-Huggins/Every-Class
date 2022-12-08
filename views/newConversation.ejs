@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Course</title>
-    <link rel="stylesheet" href="/css/addCourse.css">
+    <title>New Conversation</title>
+    <link rel="stylesheet" href="/css/newConversation.css">
     <link rel="stylesheet" href="/css/nav.css">
     <script src="/js/nav.js" defer></script>
 </head>
@@ -19,20 +19,21 @@
         <a id="logout" href="/api/logout">Log Out</a>
     </div>
     <span style="font-size:50px;cursor:pointer;color:white;" onclick="openNav()">&#9776;</span>
-    
+
     <div class="wrapper">
-        <h1>Find a course:</h1>
-        <p class="description">(Typing the course should immediately find it)</p>
-        <form id="addCourse" action="/api/addedCourse" method="POST">
-            <label for="courses"><b>Courses:</b></label>
-            <select name="CRN" id="CRN">
-                <% for (let i = 0; i < allCourses.length; i++){ %>
-                    <option value="<%= allCourses[i].CRN %>">
-                        <%= allCourses[i].CourseName %>
+        <h1>Find a user:</h1>
+        <p class="description">(Typing their name should immediately find it)</p>
+        <form id="messagesAdded" action="/api/messages/added" method="POST">
+            <label for="users"><b>Users:</b></label>
+            <select name="userID" id="userID">
+                <% for (let i = 0; i < users.length; i++){ %>
+                    <option value="<%= users[i].userID %>">
+                        <%= users[i].firstName %>
+                        <%= users[i].lastName %>
                     </option>
                 <% } %>
             </select>
-            <button type="submit" class="submit" value="Submit">Add Course</button>
+            <button type="submit" class="submit" value="Submit">Add User</button>
         </form>
     </div>
 </body>

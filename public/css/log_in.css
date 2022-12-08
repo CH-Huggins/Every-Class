@@ -1,0 +1,243 @@
+/* ========================================================================== */
+/* ---------------------------- Containers ---------------------------------- */
+/* ========================================================================== */
+
+body {
+    /* Content */
+    overflow: hidden;
+}
+
+.left_block {
+    /* Background */
+    border: solid;
+    border-width: 5px;
+    border-bottom: none;
+    border-color: #000000;
+
+    /* Size */
+    width: 60%;
+    height: 900px;
+
+    /* Position */
+    display: inline-block;
+    transform: translate(-5%, -5%);
+
+    /* Content */
+    object-fit: cover;
+}
+
+.container {
+    /* Size */
+    width: fit-content;
+
+    /* Position */
+    position: fixed;
+    top: 20%;
+    left: 78%;
+    transform: translate(-50%, -50%);
+}
+
+.text {
+    /* Border */
+    border: solid;
+    border-color: #92abb0;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+
+    /* Size */
+    width: fit-content;
+    
+    /* Position */
+    margin: auto;
+    margin-bottom: 12.5%;
+}
+
+/* ========================================================================== */
+/* --------------------------- Non-Container -------------------------------- */
+/* ========================================================================== */
+
+.title {
+    /* Size */
+    width: auto;
+
+    /* Position */
+    display: block;
+    font-size: 100px;
+    margin: auto;
+    margin-bottom: 0%;
+    text-align: center;
+    
+    /* Content */
+    font-family: newFont;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
+    color: black;
+}
+
+.description {
+    /* Size */
+    width: 40%;
+    padding: 5%;
+
+    /* Position */
+    display: block;
+
+    /* Content */
+    color: black;
+    font-size: 24px;
+    margin: auto;
+    text-align: center;
+    font-family: newFont;
+}
+
+.container2 {
+    /* Size */
+    width: fit-content;
+
+    /* Position */
+    position: fixed;
+    top: 45%;
+    left: 78%;
+    transform: translate(-50%, -50%);
+}
+
+input {
+    /* Background */
+    border: solid;
+    border-radius: 5px;
+
+    /* Size */
+    width: 40%;
+
+    /* Position */
+    display: inline-block;
+    left: 0%;
+    text-align: center;
+    margin-left: 30%;
+    margin-bottom: 1%;
+
+    /* Content */
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+
+label {
+    /* Size */
+    width: 100%;
+
+    /* Position */
+    display: inline-block;
+    text-align: center;
+    padding-bottom: 2%;
+
+    /* Content */
+    font-family: newfont;
+}
+
+.submit {
+    /* Border */
+    border: solid;
+    border-radius: 10px;
+    border-color: #000000;
+    background-color: white;
+
+    /* Size */
+    width: 60%;
+    padding: 2.5%;
+
+    /* Position */
+    display: block;
+    text-align: center;
+    margin-left: 21%;
+
+    /* Content */
+    font-family: newFont;
+    color: black;
+    font-size: 20px; 
+    box-shadow: 0px 5px rgba(0, 44, 88, 0.5);
+}
+
+.submit:hover {
+    /* Background */
+    background-color: rgba(204, 204, 204, 0.8);
+
+    /* Cursor */
+    cursor: pointer;
+}
+
+#or {
+    /* Size */
+    width: fit-content;
+
+    /* Position */
+    position: fixed;
+    top: 67.5%;
+    left: 78.5%;
+    transform: translate(-50%, -50%);
+
+    /* Content */
+    font-family: newFont;
+    font-size: 24px;
+}
+
+.error {
+    /* Size */
+    width: fit-content;
+
+    /* Position */
+    top: 60%;
+    margin-left: 51%;
+    left: 78.5%;
+    transform: translate(-50%, -50%);
+
+    /* Content */
+    font-family: newFont;
+}
+
+/* ========================================================================== */
+/* ------------------------------ Sign Up ----------------------------------- */
+/* ========================================================================== */
+
+.nav a {
+    /* Border */
+    border: solid;
+    border-radius: 20px;
+    border-color: #000000;
+    background-color: white;
+
+    /* Size */
+    width: 20%;
+    padding: 2.5%;
+
+    /* Position */
+    position: fixed;
+    text-align: center;
+    display: block;
+    top: 82.5%;
+    left: 78.5%;
+    transform: translate(-50%, -50%);
+
+    /* Content */
+    font-family: newFont;
+    color: black;
+    text-decoration: none;
+    font-size: 40px;
+    box-shadow: 0px 5px rgba(0, 44, 88, 0.5);
+}
+
+.nav a:hover {
+    /* Background */
+    background-color: rgba(204, 204, 204, 0.8);
+
+    /* Cursor */
+    cursor: pointer;
+}
+
+/* ========================================================================== */
+/* ------------------------------- Fonts ------------------------------------ */
+/* ========================================================================== */
+
+@font-face {
+    /* https://www.dafont.com/fort-quinsy.font */
+    font-family: newFont;
+    src: url("../media/fonts/Cocogoose.ttf") format("opentype");
+}

@@ -6,15 +6,8 @@ firstName     VARCHAR(35),
 lastName     VARCHAR(35),
 GPA DECIMAL(3,2) ,
 validated boolean default (false),
+major   VARCHAR(40),
 primary key (userID)
-);
-
-CREATE TABLE IF NOT EXISTS Posts (
-postID TEXT PRIMARY KEY,
-author TEXT NOT NULL,
-postText TEXT NOT NULL,
-likes INTEGER NOT NULL DEFAULT 0 CHECK (likes > 0),
-FOREIGN KEY(author) REFERENCES users(userID)
 );
 
 
@@ -72,6 +65,39 @@ CurveFrequency DECIMAL(3,2) CHECK (CurveFrequency <= 5),
 FOREIGN KEY (CRN) REFERENCES Courses (CRN) on delete cascade on update cascade,
 FOREIGN KEY (UserID)  REFERENCES users (UserID) on delete cascade on update cascade,
 PRIMARY KEY (CRN, userID));
+
+CREATE TABLE IF NOT EXISTS Posts (
+postID VARCHAR(20),
+spaceID varchar(80),
+authorID VARCHAR(20),
+postText TEXT,
+time TEXT,
+date TEXT,
+firstName     VARCHAR(35),
+lastName     VARCHAR(35),
+major   VARCHAR(40) ,
+FOREIGN KEY(authorID) REFERENCES users(userID)
+);
+
+CREATE TABLE IF NOT EXISTS conversation(
+conversationID TEXT NOT NULL,
+first_userID   VARCHAR(20) NOT NULL,
+second_userID VARCHAR(20) NOT NULL,
+time TEXT NOT NULL,
+PRIMARY KEY (conversationID),
+FOREIGN KEY (first_userID) REFERENCES Users(userID),
+FOREIGN KEY (second_userID) REFERENCES Users(userID)
+);
+
+CREATE TABLE IF NOT EXISTS conversationReplies(
+conversationReplies INTEGER,
+conversationID TEXT NOT NULL,
+message TEXT,
+time TEXT NOT NULL,
+userID VARCHAR(20) NOT NULL,
+FOREIGN KEY (userID) REFERENCES Users(UserID),
+FOREIGN KEY (conversationID) REFERENCES conversation(conversationID)
+);
 
 -- DEPARMENTS
 -- Insert into deparments
@@ -2568,3 +2594,10 @@ INSERT INTO departmentCourses VALUES ('14410','THEATRE ARTS');
 INSERT INTO departmentCourses VALUES ('14407','THEATRE ARTS');
 
 INSERT INTO Semesters VALUES ('F2022');
+
+CREATE TRIGGER new_bid_no
+BEFORE INSERT ON Posts
+WHEN NEW.SpaceID = (SELECT CourseName FROM Courses WHERE CourseName = NEW.SpaceID)
+BEGIN
+    INSERT INTO Posts(spaceID,authorID,postText,time) VALUES ( NEW.SpaceID, NEW.AuthorID, NEW.PostText, NEW.Time);
+END;

@@ -21,6 +21,7 @@ body {
     width: 50%;
     height: 75%;
     padding: 1.25%;
+    overflow-y: scroll;
 
     /* Position */
     position: fixed;
@@ -98,6 +99,7 @@ button {
     font-size: 16px;
     color: black;
 }
+
 .terms {
     /* Position */
     text-align: center;

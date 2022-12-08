@@ -22,50 +22,63 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     overflow-y: scroll;
-}
-
-.course {
-    /* Border */
-    border: solid;
-    border-color: black;
-    background-color: white;
-
-    /* Size */
-    max-height: 25%;
-    max-height: fit-content;
-
-    /* Position */
-    display: block;
+    overflow-x: hidden;
 
     /* Content */
-    font-style: none;
+    text-align: center;
+    font-family: newFont;
+}
+
+.conversation {
+    /* Border */
+    border: 2px solid;
+
+    /* Size */
+    width: 98%;
+    height: 65%;
+
+    /* Position */
+    margin: .2%;
+    transform: translate(.75%, 0);
+    overflow-y: scroll;
+
+    /* Content */
+    text-decoration: none;
     color: black;
 }
 
-.courseDivs {
-    /* Size */
-    padding: 1%;
-    width: 11%;
-
-    /* Position */
-    display: inline-block;
-    text-align: center;
-    margin-left: 8%;
-    margin-right: 8%;
+.name {
+        /* Position */
+        display: inline-block;
+        text-align: center;
+        margin-left: 8%;
+        margin-right: 8%;
 }
 
 /* ========================================================================== */
 /* --------------------------- Non-Container -------------------------------- */
 /* ========================================================================== */
 
-#noClass {
+h1 {
+    /* Border */
+    border: solid;
+    border-color: black;
+    border-radius: 5%;
+    background-color: white;
+
+    /* Size */
+    width: fit-content;
+    padding: 1.5%;
+    margin: 3%;
+    margin-left: 7.5%;
+
     /* Position */
+    display: inline-block;
     text-align: center;
-    transform: translate(0, 650%);
 
     /* Content */
-    font-family: newFont;
     font-size: 30px;
+    font-family: Arial;
 }
 
 button {
@@ -92,22 +105,6 @@ button {
 button:hover {
     /* Cursor */
     cursor: pointer;
-}
-
-.details {
-    /* Position */
-    display: block;
-}
-
-.courseDetails {
-    /* Position */
-    display: block;
-}
-
-.submit {
-    /* Position */
-    float: left;
-    margin-left: 1%;
 }
 
 /* ========================================================================== */

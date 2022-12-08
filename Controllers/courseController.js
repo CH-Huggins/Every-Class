@@ -206,6 +206,18 @@ function renderCourseReviews(req, res) {
     }
 }
 
+/**
+ * @brief       Renders the course page again while adding the new course rating
+ *
+ * @detailed    This renders the standard courses page that lists all
+ *              courses a user is taking after dropping the  course selected
+ *              from the courses.ejs file
+ *              
+ * @param       req         the request sent by the client
+ * 
+ * @param       res         the response sent be the server
+**/
+
 function postCourseReview(req, res) {
     // If logged in, operate
     if (req.session.isLoggedIn){

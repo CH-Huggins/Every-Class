@@ -1,63 +1,55 @@
 "use strict"
 
 const spaceModel = require("../Models/spaceModel");
+const postModel = require("../Models/postModel")
+
+/**
+ * @brief       Renders the Home Space
+ *
+ * @detailed    This gets all posts that have been posted in the home space
+ *              as well as lets students write posts.
+ *              
+ * @param       req         the request sent by the client
+ * 
+ * @param       res         the response sent be the server
+**/
 
 function renderHome(req, res) {
-    // Populate array of posts
-    //const posts = spaceModel.populatePosts("home");
-    // Test array
-    const user = {"firstName": "Christian", "lastName": "Huggins", "gpa": "4.0", "major": "Computer Science", "img": false}
-    // Will use this code for the post method to store the time and date
-    const info = Date().split(' ');
-    const date = info[0] + ' ' + info[1] + ' ' + info[2] + ', ' + info[3];
-    const timeInfo = info[4].split(':');
-    if (timeInfo[0] > 12){
-        timeInfo[0] = timeInfo[0] - 12;
-        timeInfo[2] = 'pm';
-    } else {
-        timeInfo[2] = 'am';
-    }
-    const time = timeInfo[0] + ':' + timeInfo[1] + timeInfo[2];
-
-    const post = {"date": date, 
-        "time": time, 
-        "location": "Home", 
-        "content": "Testing the home page",
-        "user": user}
-    const posts = [post, post, post, post, post, post, post];
-
     if (req.session.isLoggedIn){
+        let posts = postModel.getPosts("Home");
+        posts = posts.sort((a, b) => {
+            if (a.time > b.time){
+                return -1
+            }
+        });
+
         res.render("space", {"posts": posts, "location": "Home"});
     } else {
         res.render("log_in");
     }
 }
 
+/**
+ * @brief       Renders a course Space
+ *
+ * @detailed    This gets all posts that have been posted in a course's
+ *              designated space. It also allows the user to write posts.
+ *              
+ * @param       req         the request sent by the client
+ * 
+ * @param       res         the response sent be the server
+**/
+
 function renderSpace(req, res) {
-    const location = req.params.course;
-    // Populate array of posts
-    //const posts = spaceModel.populatePosts(location);
-    // Test array
-    const user = {"firstName": "Christian", "lastName": "Huggins", "gpa": "4.0", "major": "Computer Science", "img": false}
-    const info = Date().split(' ');
-    const date = info[0] + ' ' + info[1] + ' ' + info[2] + ', ' + info[3];
-    const timeInfo = info[4].split(':');
-    if (timeInfo[0] > 12){
-        timeInfo[0] = timeInfo[0] - 12;
-        timeInfo[2] = 'pm';
-    } else {
-        timeInfo[2] = 'am';
-    }
-    const time = timeInfo[0] + ':' + timeInfo[1] + timeInfo[2];
-
-    const post = {"date": date, 
-        "time": time, 
-        "location": "Home", 
-        "content": "Testing the " + location + " page",
-        "user": user}
-    const posts = [post, post, post, post, post, post, post];
-
     if (req.session.isLoggedIn){
+        const location = req.params.course;
+        let posts = postModel.getPosts(location);
+        posts = posts.sort((a, b) => {
+            if (a.time > b.time){
+                return -1
+            }
+        });
+
         res.render("space", {"posts": posts, "location": location});
     } else {
         res.render("log_in");

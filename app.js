@@ -69,7 +69,9 @@ const postValidator = require("./Validators/postValidator");
 
 // Controllers
 const userController = require("./Controllers/userController");
+const userModel = require("./Models/userModel");
 const postController = require("./Controllers/postController");
+const messagesController = require("./Controllers/messageController");
 
 // Nav Bar Controllers
 const spaceController = require("./Controllers/spaceController");
@@ -85,7 +87,13 @@ app.use(express.json({limit: '200kb'}));
 
 app.post("/api/user", userValidator.registerValidator, userController.createNewUser);
 app.post("/api/login", userValidator.loginValidator, userController.logIn);
-app.post("/api/posts", postValidator.postValidator, postController.createPost);
+app.get("/verify/:userID", async (req, res) => {
+	const userID = req.params;
+
+	userModel.checkUser(userID);
+
+	res.redirect('/api/login');
+})
 
 ////////////////////////////////////////////////////////////////////////////////
 // Nav Bar
@@ -93,12 +101,9 @@ app.post("/api/posts", postValidator.postValidator, postController.createPost);
 
 app.get("/api/home", spaceController.renderHome);
 app.get("/api/courses", courseController.renderCourses);
-// TODO
-app.get("/api/library",);
-// TODO
-app.get("/api/messages",);
+app.get("/api/messages", messagesController.renderMessages);
 app.get("/api/profile", profileController.loadProfile);
-app.post("/api/logOut", userController.logOut);
+app.get("/api/logout", userController.logOut);
 
 ////////////////////////////////////////////////////////////////////////////////
 // Course Space
@@ -118,6 +123,28 @@ app.post("/api/courseRating", courseController.postCourseReview);
 app.get("/api/addCourse", courseController.renderAddCourse);
 app.post("/api/addedCourse", courseController.renderAddedCourse);
 app.post("/api/droppedCourse", courseController.renderDroppedCourse);
+
+////////////////////////////////////////////////////////////////////////////////
+// Messages
+////////////////////////////////////////////////////////////////////////////////
+
+app.get("/api/messages/:conversationID", messagesController.renderConversation);
+app.post("/api/sendMessage", messagesController.renderSentMessage);
+app.get("/api/newConversation", messagesController.renderNewConversation);
+app.post("/api/messages/added", messagesController.renderConversationAdded);
+
+////////////////////////////////////////////////////////////////////////////////
+// Profile
+////////////////////////////////////////////////////////////////////////////////
+
+app.get("/api/updateProfile", profileController.updateProfile);
+app.post("/api/profileUpdated", profileController.profileUpdated);
+
+////////////////////////////////////////////////////////////////////////////////
+// Posts
+////////////////////////////////////////////////////////////////////////////////
+
+app.post("/api/makePost", postController.makePost);
 
 // ========================================================================== //
 // ============================ Error Handlers ============================== //

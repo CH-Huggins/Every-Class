@@ -7,23 +7,15 @@
     <title>Profile</title>
     <link rel="stylesheet" href="/css/profile.css">
     <link rel="stylesheet" href="/css/nav.css">
-    <script src="/js/nav.js" defer>
-        function logOut() {
-            const logOut = document.getElementById("logout");
-            logOut.onclick
-        }
-    </script>
+    <script src="/js/nav.js" defer></script>
 </head>
 <body>
     <div id="nav">
-        <!-- TODO: Create app.gets for each of these views -->
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="/api/home">Home</a>
         <a href="/api/courses">Courses</a>
-        <a href="/library">Library</a>
-        <a href="/messages">Messages</a>
+        <a href="/api/messages">Messages</a>
         <a href="/api/profile">Profile</a>
-        <!-- Log Out needs to call method to end user sessions -->
         <a id="logout" href="/api/logout">Log Out</a>
     </div>
     <span style="font-size:50px;cursor:pointer;color:white;" onclick="openNav()">&#9776;</span>
@@ -34,7 +26,7 @@
         <% } else { %>
             <img src="../media/images/default.jpeg" alt="User Image">
         <% } %>
-        <button type="button" class="edit">
+        <button type="button" class="edit" onclick="window.location.href = '/api/updateProfile'">
             <span>Edit</span>
         </button>
         <div class="data">
@@ -86,10 +78,10 @@
                             <%= posts[i].date %>
                             <%= posts[i].time %>
                             in
-                            <%= posts[i].location %>
+                            <%= posts[i].spaceID %>
                         </p>
-                        <p>
-                            <%= posts[i].content %>
+                        <p style="font-family: Arial;">
+                            <%= posts[i].postText %>
                         </p>
                     </div>
                 <% } %>
