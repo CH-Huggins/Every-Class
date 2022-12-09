@@ -10,10 +10,8 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 
-var bodyParser = require('body-parser');
-
-app.use(bodyParser.json()); // for parsing application/json
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(express.json()); // for parsing application/json
+app.use(express.urlencoded({ extended: true }))
 
 // Production Security
 const helmet = require("helmet");

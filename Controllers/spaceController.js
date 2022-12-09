@@ -1,6 +1,5 @@
 "use strict"
 
-const spaceModel = require("../Models/spaceModel");
 const postModel = require("../Models/postModel")
 
 /**

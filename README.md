@@ -27,9 +27,14 @@ The foundation needed for a website to avoid repetition.
 3. install packages
 
 
+.env Necessary Contents:
+PORT=
+DB="database.db"
+COOKIE_SECRET=randomly generated 32-character string
+
 List of Packages:
 npm install argon2
-= no clue =
+= password hashing =
 
 npm install better-sqlite3
 = database =
@@ -55,12 +60,6 @@ npm install express-session
 npm install joi
 = validators =
 
-npm install json
-= json =
-
-npm install node-fetch@2
-= api stuff =
-
 npm install nodemon
 = on the fly website changes =
 
@@ -69,12 +68,6 @@ npm install redis
 
 npm install redis-server
 = more server management =
-
-npm install schema
-= validators =
-
-npm install superagent
-= no clue =
 
 npm install redis@v3
 = redis server =
@@ -96,8 +89,3 @@ Valitor maker and any other validators
 
 views:
 All ejs files
-
-Database Needs:
-CourseRatings table (needs course name to be a column)
-User's first name, last name (currently is a student full name)
-User's profile image
