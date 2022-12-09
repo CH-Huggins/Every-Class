@@ -81,6 +81,8 @@ app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
 app.use(express.json({limit: '200kb'}));
 
+app.get('/', (req, res) => res.render('log_in', {invalid: req.query.invalid}));
+
 // Endpoints (Seperate into alotted sections) DONT FORGET VALIDATORS
 
 app.post("/api/user", userValidator.registerValidator, userController.createNewUser);

@@ -29,6 +29,7 @@ body {
     top: 50%;
     left: 50%;
     margin: 1.25%;
+    text-align: center;
 }
 
 /* ========================================================================== */
@@ -58,7 +59,6 @@ label {
     /* Position */
     text-align: center;
     display: inline-block;
-    margin-left: 18%;
 
     /* Content */
     font-family: newFont;
@@ -72,7 +72,6 @@ input {
     /* Position */
     text-align: center;
     display: inline-block;
-    margin-left: 12.5%;
 
     /* Content */
     font-family: newFont;
@@ -112,7 +111,6 @@ button {
     /* Position */
     text-align: center;
     display: inline-block;
-    margin-left: 13%;
 
     /* Content */
     font-family: newFont;
@@ -120,8 +118,24 @@ button {
 }
 
 .backbtn {
+    /* Border */
+    border: 2px solid;
+    border-color: #000000;
+    background-color: #38ba84;
+
+    /* Size */
+    padding: 1.75% 4.3%;
+
     /* Position */
-    margin-left: 30%;
+    margin: 1.75%;
+    transition: .25s ease-in-out;
+    text-align: center;
+
+    /* Content */
+    font-family: newFont;
+    font-size: 16px;
+    color: black;
+    text-decoration: none;
 }
 
 .backbtn:hover {
@@ -130,7 +144,7 @@ button {
 
     /* Position */
     transition: .25s ease-in-out;
-    margin-left: calc(27.5%);
+    margin-left: calc(-.75%);
 
     /* Content */
     cursor: pointer;

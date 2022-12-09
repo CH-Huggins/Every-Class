@@ -16,7 +16,7 @@ const registerSchema = joi.object({
         }),
 
     "pswd": joi.string()
-        .min(7)
+        .min(10)
         .required()
         .token()
         .messages({
@@ -43,14 +43,14 @@ const loginSchema = joi.object({
         .required(),
 
     "pswd": joi.string()
-        .min(7)
+        .min(10)
         .required()
         .token(),
 })
 
 // Make a validator using the makeValidator function passing the schema
-const registerValidator = makeValidator(registerSchema, `body`);
-const loginValidator    = makeValidator(loginSchema, `body`);
+const registerValidator = makeValidator(registerSchema, `body`, "sign_up");
+const loginValidator    = makeValidator(loginSchema, `body`, "login");
 
 module.exports = {
     registerValidator,

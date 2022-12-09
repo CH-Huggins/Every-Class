@@ -184,9 +184,7 @@ label {
     width: fit-content;
 
     /* Position */
-    top: 60%;
     margin-left: 51%;
-    left: 78.5%;
     transform: translate(-50%, -50%);
 
     /* Content */

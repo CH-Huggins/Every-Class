@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/css/log_in.css">
 </head>
 <body>
-    <img class="left_block" src="../media/images/class.png">
+    <img class="left_block" src="\media/images/class.png">
     <div class="container">
         <p class="title">EveryClass</p>
         <p class="description">
@@ -22,7 +22,10 @@
 
                 <label for="pswd"><b>Password:</b></label>
                 <input type="password" placeholder="Password" name="pswd" required>
-                <p class="error" style="color:#ff0000">Your email or password was incorrect!"</p>
+
+                <% if (locals.invalid) { %>
+                    <p class="error" style="color:#ff0000">Your email or password was incorrect!</p>
+                <% } %>
 
                 <button type="submit" class="submit" value="Submit">Log In</button>
         </form>
