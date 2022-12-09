@@ -14,12 +14,13 @@
             
             <label for="email" class="ejs"><b>Type Your Astate Email:</b></label>
             <input type="text" placeholder="Type Astate Email" name="email" required>
-            <p class="error" style="color:#ff0000">Email must contain "@smail.astate.edu"</p>
+            <p class="error" style="color:#ff0000">
+                Email must be an astate student "first.last@smail.astate.edu"</p>
 
             <label for="pswd" class="ejs"><b>Type Your Password:</b></label>
             <input type="password" placeholder="Password" name="pswd" required>
-            <p class="error" style="color:#ff0000">Passwords should contain at least
-                ten characters, a capitalized letter, and a special character</p>
+            <p class="error" style="color:#ff0000">Passwords should contain at
+                 least ten characters</p>
 
             <label for="pswd_verify"><b>Re-Type Your Password:</b></label>
             <input type="password" placeholder="Password" name="pswd_verify" required>
@@ -28,7 +29,7 @@
                 <a href="" style="color:dodgerblue">Terms and Service</a></p>
 
             <div>
-                <button type="button" class="backbtn" onclick="history.go(-2)">Go Back</button>
+                <a class="backbtn" href="/">Go Back</a>
                 <button type="submit" class="submitbtn">Sign Up</button>
             </div>
         </div>

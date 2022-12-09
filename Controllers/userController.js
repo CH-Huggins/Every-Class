@@ -50,7 +50,7 @@ async function logIn (req, res) {
     const user = userModel.getUserbyEmail(email);
 
     if (user == null) {
-        return res.render("log_in");
+        return res.redirect("/?invalid=true");
     }
 
     // update ejs to display incorrect password
@@ -59,25 +59,8 @@ async function logIn (req, res) {
     /* Would do if email services worked
     if (!correct || !user.validated) { */
     if (!correct) {
-        return res.render("log_in");
+        return res.redirect("/?invalid=true");
     };
-
-    req.session.regenerate( (error) => {
-        if(error) {
-            //update to render error on login
-            console.log(error);
-            return res.sendStatus(500);
-        }
-        req.session.isLoggedIn = true;
-        req.session.user = {
-            "email": user.email,
-            "userID": user.userID,
-        }
-
-        var name = email.split(".")[0].toString();
-        name = name.charAt(0).toUpperCase() + name.slice(1);
-        return res.redirect("/api/home");
-    });
 }
 
 /**

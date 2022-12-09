@@ -8,7 +8,7 @@ const postSchema = joi.object({
         .required()
 })
 
-const postValidator = makeValidator(postSchema, `body`);
+const postValidator = makeValidator(postSchema, `body`, "post");
 
 module.exports = {
     postValidator
