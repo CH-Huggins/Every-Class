@@ -30,7 +30,7 @@ async function createNewUser (req, res) {
         }
 
         // Redirect to the home page
-        return res.redirect('/index.html');
+        return res.redirect('/');
     }
 }
 
@@ -61,6 +61,20 @@ async function logIn (req, res) {
     if (!correct) {
         return res.redirect("/?invalid=true");
     };
+
+    req.session.regenerate( (error) => {
+        if(error) {
+            //update to render error on login
+            console.log(error);
+            return res.sendStatus(500);
+        }
+        req.session.isLoggedIn = true;
+        req.session.user = {
+            "email": user.email,
+            "userID": user.userID,
+        }
+        return res.redirect("/api/home");
+    });
 }
 
 /**

@@ -59,17 +59,17 @@ body {
 }
 
 #user {
-    /* Size */
-
     /* Position */
     display: block;
-    transform: translate(-35%, 0);
+    text-align: left;
+    margin-left: 2%
 }
 
 #dateTime {
     /* Position */
     display: block;
-    transform: translate(-37.75%, 0);
+    text-align: left;
+    margin-left: 2%
 }
 
 .writePost {
@@ -118,20 +118,6 @@ h1 {
     font-family: Arial;
 }
 
-img {
-    /* Border */
-    border-radius: 60%;
-
-    /* Size */
-    height: 5%;
-    width: 5%;
-
-    /* Position */
-    float: left;
-    margin-top: 5px;
-    margin-left: 5px;
-}
-
 textarea {
     /* Background */
     background-color: white;
@@ -172,7 +158,6 @@ button:hover {
 .time {
     display: inline;
     font-family: Arial, Helvetica, sans-serif;
-    margin-left: 5%;
 }
 
 /* ========================================================================== */
