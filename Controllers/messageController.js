@@ -72,8 +72,6 @@ function renderConversation(req, res) {
             receiver = userModel.getUserByUserID(users.first_userID);
         }
 
-        console.log(conversation)
-
         // Sort by time
         conversation = conversation.sort((a, b) => {
             if (a.conversationReplies > b.conversationReplies){
@@ -136,7 +134,7 @@ function renderSentMessage(req, res) {
 
         // Sort by time
         conversation = conversation.sort((a, b) => {
-            if (a.time < b.time){
+            if (a.time > b.time){
                 return -1
             }
         });
@@ -203,7 +201,7 @@ function renderConversationAdded(req, res) {
         // their email
         let messages = messageModel.getUsersConversations(req.session.user.userID);
 
-        conversation = conversation.sort((a, b) => {
+        messages = messages.sort((a, b) => {
             if (a.conversationReplies > b.conversationReplies){
                 return -1
             }
