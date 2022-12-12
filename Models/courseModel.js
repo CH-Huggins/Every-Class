@@ -158,11 +158,11 @@ function getCourseRating(course) {
         return 0;
     } else {
         // Initialize a json body with the average of each category
-        const averages = {"Punctuality": punctuality / count,
-                            "Professionalism": profes / count,
-                            "Easiness": easiness / count,
-                            "Interaction": interaction / count,
-                            "CurveFrequency": curveFreq / count}
+        const averages = {"Punctuality": (punctuality / count).toFixed(2),
+                            "Professionalism": (profes / count).toFixed(2),
+                            "Easiness": (easiness / count).toFixed(2),
+                            "Interaction": (interaction / count).toFixed(2),
+                            "CurveFrequency": (curveFreq / count).toFixed(2)}
         // Find the overall average
         return averages;
     }

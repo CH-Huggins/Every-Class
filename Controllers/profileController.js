@@ -25,6 +25,11 @@ function loadProfile (req,res) {
         }
 
         let posts = postModel.getUsersPosts(req.session.user.userID);
+        posts = posts.sort((a, b) => {
+            if (a.time > b.time){
+                return -1
+            }
+        });
 
         res.render("profile", {"user": user, "posts": posts});
     } else {
@@ -80,8 +85,12 @@ function profileUpdated (req, res) {
             user = {"firstName": userInfo[0].firstName, "lastName": userInfo[0].lastName, "gpa": userInfo[0].GPA, "major": userInfo[0].major};
         }
 
-        const post = {"date": "10/31/2022", "time": "1:00pm", "location": "Java Apps", "content": "Hello!"};
-        const posts = [post, post, post, post, post, post, post];
+        let posts = postModel.getUsersPosts(req.session.user.userID);
+        posts = posts.sort((a, b) => {
+            if (a.time > b.time){
+                return -1
+            }
+        });
 
         res.render("profile", {"user": user, "posts": posts});
     } else {
